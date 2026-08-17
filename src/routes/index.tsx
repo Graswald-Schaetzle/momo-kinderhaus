@@ -123,7 +123,7 @@ function Index() {
         </button>
       </div>
 
-      <p className="mt-8 px-6 font-display text-3xl font-normal leading-tight sm:text-4xl md:text-5xl">START JAN. 2027</p>
+      <p className="mt-8 px-6 font-display text-2xl font-normal leading-tight sm:text-3xl md:text-4xl">START JAN. 2027</p>
 
     </main>
   );

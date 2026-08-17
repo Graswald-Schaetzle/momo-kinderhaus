@@ -23,6 +23,10 @@ export function SiteHeader() {
         </span>
       </div>
 
+      <p className="mt-6 text-base font-bold leading-relaxed sm:text-lg">
+        9 Kinder, 3 Pädagoginnen, undendliche Geborgenheit.
+      </p>
+
       <h1 className="mt-8 text-3xl font-normal leading-tight sm:text-4xl md:text-5xl">1-3 Jahre</h1>
 
       <p className="mt-12 text-base font-bold leading-relaxed sm:text-lg">
@@ -36,10 +40,6 @@ export function SiteHeader() {
         >
           Mozartstraße 4, 71686 Remseck am Neckar
         </a>
-      </p>
-
-      <p className="mt-4 text-base font-bold leading-relaxed sm:text-lg">
-        9 Kinder, 3 Pädagoginnen, undendliche Geborgenheit.
       </p>
 
       <nav

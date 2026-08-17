@@ -90,16 +90,16 @@ export function SiteHeader() {
           width={860}
           height={238}
         />
-        <span className="mt-4 font-serif text-lg font-normal tracking-[0.06em] sm:text-xl md:text-2xl">
+        <span className="mt-4 font-display text-lg font-normal tracking-[0.06em] sm:text-xl md:text-2xl">
           KLEINKINDERGARTEN
         </span>
       </div>
 
-      <p className="mt-8 font-serif text-lg font-bold leading-relaxed sm:text-xl md:text-2xl">
+      <p className="mt-8 font-display text-lg font-bold leading-relaxed sm:text-xl md:text-2xl">
         9 Kinder, 3 Pädagoginnen, undendliche Geborgenheit.
       </p>
 
-      <h1 className="mt-10 text-2xl font-normal tracking-[0.06em] sm:text-3xl md:text-4xl">1-3 Jahre</h1>
+      <h1 className="mt-10 font-display text-2xl font-normal tracking-[0.06em] sm:text-3xl md:text-4xl">1-3 Jahre</h1>
     </header>
 
   );

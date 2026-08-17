@@ -5,6 +5,8 @@ import heroVideo from "@/assets/momo-hund3.mp4.asset.json";
 import heroVideoWebm from "@/assets/momo-hund3.webm.asset.json";
 import heroPoster from "@/assets/momo-hund3-poster.jpg.asset.json";
 import snoreAudio from "@/assets/momo-schnarchen-2.mp3.asset.json";
+import soundOnIcon from "@/assets/sound-on-watercolor.png";
+import soundOffIcon from "@/assets/sound-off-watercolor.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -109,17 +111,16 @@ function Index() {
           onClick={toggleSnore}
           aria-pressed={snoring}
           aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-          className="-mt-6 ml-[10%] flex items-center text-stone-700/70 transition-opacity hover:opacity-100"
+          className="-mt-6 ml-[10%] flex items-center transition-opacity hover:opacity-100"
         >
-          {snoring ? (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
-              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4.03v8.05A4.5 4.5 0 0 0 16.5 12zM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
-              <path d="M3 9v6h4l5 5V4L7 9H3zm13.59 3L19 9.41 17.59 8l-2.41 2.41L12.77 8l-1.41 1.41L13.77 12l-2.41 2.41L12.77 16l2.41-2.41L17.59 16 19 14.59 16.59 12z" />
-            </svg>
-          )}
+          <img
+            src={snoring ? soundOnIcon : soundOffIcon}
+            alt={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
+            loading="lazy"
+            width={48}
+            height={48}
+            className="h-12 w-12 object-contain"
+          />
         </button>
       </div>
 

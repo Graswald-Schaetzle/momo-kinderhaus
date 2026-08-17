@@ -38,6 +38,10 @@ export function SiteHeader() {
         </a>
       </p>
 
+      <p className="mt-4 text-base font-bold leading-relaxed sm:text-lg">
+        bewusst familiär gestaltet: 9 Kinder, 3 Pädagoginnen, viel Geborgenheit.
+      </p>
+
       <nav
         className="mt-16 flex w-full items-center justify-between text-base font-bold sm:text-lg"
         aria-label="Hauptnavigation"

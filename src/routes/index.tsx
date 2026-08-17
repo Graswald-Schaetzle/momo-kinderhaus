@@ -80,20 +80,19 @@ function Index() {
         <div className="relative mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
           {/* Geschwungenes "1-3 Jahre" über dem Hund */}
           <svg
-            viewBox="0 0 600 80"
-            className="pointer-events-none absolute left-1/2 top-[18%] z-[5] w-[70%] -translate-x-1/2 sm:w-[55%] md:w-[45%]"
+            viewBox="0 0 600 120"
+            className="pointer-events-none absolute left-1/2 top-[2%] z-[5] w-[80%] -translate-x-1/2 sm:w-[65%] md:w-[50%]"
             aria-hidden="true"
           >
             <defs>
-              <path id="ageArc" d="M 40 75 Q 300 -25 560 75" fill="none" />
+              <path id="ageArc" d="M 50 110 Q 300 -30 550 110" fill="none" />
             </defs>
             <text
-              className="font-display"
               style={{
                 fontFamily: 'Cinzel, "Cormorant Garamond", Georgia, serif',
                 fill: 'var(--foreground)',
-                fontSize: '22px',
-                letterSpacing: '0.06em',
+                fontSize: '34px',
+                letterSpacing: '0.08em',
                 fontWeight: 400,
               }}
             >

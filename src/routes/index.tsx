@@ -73,7 +73,7 @@ function Index() {
   };
 
   return (
-    <main className="min-h-screen pb-12 text-center">
+    <main className="min-h-screen pb-2 text-center">
       <SiteHeader />
 
       <div className="mx-auto mt-20 w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
@@ -124,7 +124,7 @@ function Index() {
         </button>
       </div>
 
-      <p className="mt-8 px-6 font-display text-2xl font-normal leading-tight sm:text-3xl md:text-4xl">START JAN. 2027</p>
+      <p className="mt-6 px-6 font-display text-2xl font-normal leading-tight sm:text-3xl md:text-4xl">START JAN. 2027</p>
 
     </main>
   );

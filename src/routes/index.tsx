@@ -85,7 +85,7 @@ function Index() {
             className="pointer-events-none absolute left-[28%] top-[-22%] z-[5] w-[55%] -translate-x-1/2 sm:left-[32%] sm:w-[42%] md:w-[36%]"
             aria-hidden="true"
           >
-            <path id="ageArc" d="M 80 150 Q 300 0 520 150" fill="none" />
+            <path id="ageArc" d="M 80 180 Q 300 20 520 180" fill="none" />
             <text
               style={{
                 fontFamily: 'Cinzel, "Cormorant Garamond", Georgia, serif',

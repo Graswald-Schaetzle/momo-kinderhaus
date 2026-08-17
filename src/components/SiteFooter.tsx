@@ -1,7 +1,7 @@
 export function SiteFooter() {
   return (
-    <footer className="px-6 pb-10 pt-1 text-center sm:px-10 md:px-14 sm:pt-3">
-      <p className="text-base font-bold leading-relaxed sm:text-lg">
+    <footer className="px-6 pb-4 pt-1 text-center sm:px-10 sm:pb-10 sm:pt-3 md:px-14">
+      <p className="text-sm font-bold leading-relaxed sm:text-lg">
         Mo-Fr. 07.45 - 13.45 Uhr
         <br />
         <a

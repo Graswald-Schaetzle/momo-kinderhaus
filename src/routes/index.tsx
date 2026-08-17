@@ -96,7 +96,7 @@ function Index() {
                 fontWeight: 400,
               }}
             >
-              <textPath href="#ageArc" startOffset="50%" textAnchor="middle">
+              <textPath xlinkHref="#ageArc" startOffset="50%" textAnchor="middle">
                 1–3 Jahre
               </textPath>
             </text>

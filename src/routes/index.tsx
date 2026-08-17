@@ -1,24 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/SiteHeader";
+import heroImage from "@/assets/momo-hero.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "MOMO Kinderhaus — Kinderbetreuung 1-3 Jahre in Remseck" },
+      {
+        name: "description",
+        content:
+          "MOMO Kinderhaus in Remseck am Neckar: bewusst familiär mit 9 Kindern und 3 Pädagoginnen. Mo-Fr. 07.45-13.45 Uhr. Eröffnung Januar 2027.",
+      },
+      { property: "og:title", content: "MOMO Kinderhaus — Kinderbetreuung 1-3 Jahre in Remseck" },
+      {
+        property: "og:description",
+        content: "Bewusst familiär gestaltet: 9 Kinder, 3 Pädagoginnen, viel Geborgenheit.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="min-h-screen pb-40">
+      <SiteHeader />
+
+      <div className="mt-20 w-full max-w-5xl">
+        <img
+          src={heroImage}
+          alt="Illustration: zwei Kinderfiguren, eine mit Artischocke als Kopf"
+          width={1600}
+          height={912}
+          className="w-full"
+        />
+      </div>
+
+      <p className="mt-8 px-6 text-base font-bold sm:px-10 md:px-14">Eröffnung Januar 2027</p>
+
+      <p className="mt-16 px-6 text-base font-bold sm:px-10 md:px-14">
+        bewusst familiär gestaltet: 9 Kinder, 3 Pädagoginnen, viel Geborgenheit.
+      </p>
+    </main>
   );
 }

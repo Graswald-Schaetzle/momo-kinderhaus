@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
-import heroImage from "@/assets/momo-hero.jpg";
+import heroVideo from "@/assets/momo-hund.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,12 +31,14 @@ function Index() {
       <SiteHeader />
 
       <div className="mx-auto mt-20 w-full max-w-5xl px-6 sm:px-10 md:px-14">
-        <img
-          src={heroImage}
-          alt="Aquarell-Illustration: schlummernder Weimaraner"
-          width={1600}
-          height={912}
-          className="w-full"
+        <video
+          src={heroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
+          className="w-full mix-blend-multiply"
         />
       </div>
 

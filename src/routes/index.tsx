@@ -27,13 +27,13 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="min-h-screen pb-40">
+    <main className="min-h-screen pb-40 text-center">
       <SiteHeader />
 
-      <div className="mt-20 w-full max-w-5xl">
+      <div className="mx-auto mt-20 w-full max-w-5xl px-6 sm:px-10 md:px-14">
         <img
           src={heroImage}
-          alt="Illustration: zwei Kinderfiguren, eine mit Artischocke als Kopf"
+          alt="Aquarell-Illustration: schlummernder Weimaraner"
           width={1600}
           height={912}
           className="w-full"
@@ -42,9 +42,10 @@ function Index() {
 
       <p className="mt-8 px-6 text-base font-bold sm:px-10 md:px-14">Eröffnung Januar 2027</p>
 
-      <p className="mt-16 px-6 text-base font-bold sm:px-10 md:px-14">
+      <p className="mx-auto mt-16 max-w-2xl px-6 text-base font-bold sm:px-10 md:px-14">
         bewusst familiär gestaltet: 9 Kinder, 3 Pädagoginnen, viel Geborgenheit.
       </p>
     </main>
   );
 }
+

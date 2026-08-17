@@ -26,11 +26,11 @@ export const Route = createFileRoute("/ueber-uns")({
 
 function UeberUns() {
   return (
-    <main className="min-h-screen pb-32">
+    <main className="min-h-screen pb-32 text-center">
       <SiteHeader />
       <section className="px-6 pt-20 sm:px-10 md:px-14">
-        <h1 className="text-base font-bold sm:text-lg">Über uns</h1>
-        <p className="mt-6 max-w-xl text-base font-bold leading-relaxed sm:text-lg">
+        <h2 className="text-base font-bold sm:text-lg">Über uns</h2>
+        <p className="mx-auto mt-6 max-w-xl text-base font-bold leading-relaxed sm:text-lg">
           Inhalt folgt.
         </p>
       </section>

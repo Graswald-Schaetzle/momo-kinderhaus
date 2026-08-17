@@ -26,16 +26,21 @@ export const Route = createFileRoute("/kontakt")({
 
 function Kontakt() {
   return (
-    <main className="min-h-screen pb-32">
+    <main className="min-h-screen pb-32 text-center">
       <SiteHeader />
       <section className="px-6 pt-20 sm:px-10 md:px-14">
-        <h1 className="text-base font-bold sm:text-lg">Kontakt</h1>
-        <p className="mt-6 max-w-xl text-base font-bold leading-relaxed sm:text-lg">
+        <h2 className="text-base font-bold sm:text-lg">Kontakt</h2>
+        <p className="mx-auto mt-6 max-w-xl text-base font-bold leading-relaxed sm:text-lg">
           MOMO Kinderhaus
           <br />
-          Mozartstraße 4
-          <br />
-          71686 Remseck am Neckar
+          <a
+            href="https://maps.app.goo.gl/GWdSX3YC2a3odJEM8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            Mozartstraße 4, 71686 Remseck am Neckar
+          </a>
         </p>
       </section>
     </main>

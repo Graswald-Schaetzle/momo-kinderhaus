@@ -36,20 +36,18 @@ export function SiteHeader() {
       </p>
 
       <nav
-        className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base font-bold sm:text-lg"
+        className="mt-12 flex w-full items-center justify-between text-base font-bold sm:text-lg"
         aria-label="Hauptnavigation"
       >
-        {navItems.map((item, i) => (
-          <span key={item.to} className="flex items-center gap-x-6">
-            {i > 0 && <span className="select-none">//</span>}
-            <Link
-              to={item.to}
-              className="underline-offset-4 hover:underline"
-              activeProps={{ className: "underline" }}
-            >
-              {item.label}
-            </Link>
-          </span>
+        {navItems.map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            className="underline-offset-4 hover:underline"
+            activeProps={{ className: "underline" }}
+          >
+            {item.label}
+          </Link>
         ))}
       </nav>
     </header>

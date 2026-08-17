@@ -47,7 +47,7 @@ function Index() {
         </video>
       </div>
 
-      <p className="mt-8 px-6 text-3xl font-normal leading-tight sm:text-4xl md:text-5xl">Eröffnung Januar 2027</p>
+      <p className="mt-8 px-6 text-3xl font-normal leading-tight sm:text-4xl md:text-5xl">START JAN. 2027</p>
 
       <p className="mx-auto mt-4 max-w-2xl px-6 text-base font-bold leading-relaxed sm:text-lg">
         bewusst familiär gestaltet: 9 Kinder, 3 Pädagoginnen, viel Geborgenheit.

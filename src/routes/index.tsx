@@ -76,7 +76,7 @@ function Index() {
     <main className="flex flex-1 flex-col items-center pb-2 text-center">
       <SiteHeader />
 
-      <div className="flex flex-1 w-full items-center justify-center">
+      <div className="flex flex-1 w-full flex-col items-center justify-around py-2">
         <div className="mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
           <video
             autoPlay
@@ -100,26 +100,26 @@ function Index() {
           </video>
           <audio ref={audioRef} src={snoreAudio.url} loop autoPlay preload="auto" />
         </div>
+
+        <button
+          type="button"
+          onClick={toggleSnore}
+          aria-pressed={snoring}
+          aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
+          className="relative z-10 inline-flex items-center transition-opacity hover:opacity-80"
+        >
+          <img
+            src={snoring ? soundOnIcon : soundOffIcon}
+            alt={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
+            loading="lazy"
+            width={32}
+            height={32}
+            className="h-8 w-8 object-contain sm:h-10 sm:w-10"
+          />
+        </button>
+
+        <p className="px-6 font-display text-xl font-normal leading-tight sm:text-3xl md:text-4xl">Start Januar 2027</p>
       </div>
-
-      <button
-        type="button"
-        onClick={toggleSnore}
-        aria-pressed={snoring}
-        aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-        className="relative z-10 mt-3 inline-flex items-center transition-opacity hover:opacity-80"
-      >
-        <img
-          src={snoring ? soundOnIcon : soundOffIcon}
-          alt={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-          loading="lazy"
-          width={32}
-          height={32}
-          className="h-8 w-8 object-contain sm:h-10 sm:w-10"
-        />
-      </button>
-
-      <p className="mt-4 px-6 font-display text-xl font-normal leading-tight sm:mt-6 sm:text-3xl md:text-4xl">Start Januar 2027</p>
 
     </main>
   );

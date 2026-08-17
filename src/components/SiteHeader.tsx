@@ -95,7 +95,7 @@ export function SiteHeader() {
         </span>
       </div>
 
-      <p className="mt-8 font-display text-lg font-bold leading-relaxed sm:text-xl md:text-2xl">
+      <p className="mt-14 font-display text-lg font-bold leading-relaxed sm:text-xl md:text-2xl">
         9 Kinder, 3 Pädagoginnen, undendliche Geborgenheit.
       </p>
 

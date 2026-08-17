@@ -49,20 +49,20 @@ export function SiteHeader() {
         <img
           src={momoLogo.url}
           alt="MOMO Kinderhaus"
-          className="h-16 w-auto sm:h-20 md:h-24"
+          className="h-20 w-auto sm:h-24 md:h-28"
           width={860}
           height={238}
         />
-        <span className="mt-3 font-serif text-base font-normal tracking-[0.06em] sm:text-lg md:text-xl">
+        <span className="mt-4 font-serif text-lg font-normal tracking-[0.06em] sm:text-xl md:text-2xl">
           KLEINKINDERGARTEN
         </span>
       </div>
 
-      <p className="mt-6 font-serif text-base font-bold leading-relaxed sm:text-lg md:text-xl">
+      <p className="mt-8 font-serif text-lg font-bold leading-relaxed sm:text-xl md:text-2xl">
         9 Kinder, 3 Pädagoginnen, undendliche Geborgenheit.
       </p>
 
-      <h1 className="mt-8 text-xl font-normal tracking-[0.06em] sm:text-2xl md:text-3xl">1-3 Jahre</h1>
+      <h1 className="mt-10 text-2xl font-normal tracking-[0.06em] sm:text-3xl md:text-4xl">1-3 Jahre</h1>
     </header>
 
   );

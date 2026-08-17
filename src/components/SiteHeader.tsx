@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import momoLogo from "@/assets/momo-logo-web.svg.asset.json";
+import momoLogo from "@/assets/momo-logo-thin.svg.asset.json";
 
 const navItems = [
   { to: "/ueber-uns", label: "ÜBER UNS" },
@@ -62,7 +62,7 @@ export function SiteHeader() {
         <nav
           aria-label="Hauptnavigation"
           aria-hidden={!open}
-          className="flex h-full flex-col items-center justify-center gap-10"
+          className="flex h-full flex-col items-center justify-center gap-8"
         >
           {navItems.map((item, i) => (
             <Link
@@ -71,7 +71,7 @@ export function SiteHeader() {
               tabIndex={open ? 0 : -1}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}
-              className={`font-serif text-3xl tracking-[0.08em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 sm:text-4xl md:text-5xl ${
+              className={`font-display text-xl font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 sm:text-2xl md:text-3xl ${
                 open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
               }`}
             >

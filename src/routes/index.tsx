@@ -109,7 +109,7 @@ function Index() {
           onClick={toggleSnore}
           aria-pressed={snoring}
           aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-          className="mt-4 flex items-center text-stone-700/70 transition-opacity hover:opacity-100"
+          className="-mt-6 ml-[10%] flex items-center text-stone-700/70 transition-opacity hover:opacity-100"
         >
           {snoring ? (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">

@@ -22,7 +22,6 @@ export function SiteHeader() {
           aria-label={open ? "Menü schließen" : "Menü öffnen"}
           className="flex h-10 w-10 items-center justify-center"
         >
-          {open ? <Menu className="h-7 w-7" style={{ display: "none" }} /> : null}
           {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
 

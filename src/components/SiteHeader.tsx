@@ -39,7 +39,7 @@ export function SiteHeader() {
       </p>
 
       <p className="mt-4 text-base font-bold leading-relaxed sm:text-lg">
-        bewusst familiär gestaltet: 9 Kinder, 3 Pädagoginnen, viel Geborgenheit.
+        9 Kinder, 3 Pädagoginnen, undendliche Geborgenheit.
       </p>
 
       <nav

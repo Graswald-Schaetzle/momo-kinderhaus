@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import momoLogo from "@/assets/momo-logo-web.svg.asset.json";
 
 const navItems = [
   { to: "/ueber-uns", label: "ÜBER UNS" },
@@ -9,7 +10,16 @@ const navItems = [
 export function SiteHeader() {
   return (
     <header className="px-6 pt-16 text-center sm:px-10 md:px-14">
-      <p className="text-base font-bold leading-snug sm:text-lg">MOMO Kinderhaus</p>
+      <p className="flex items-center justify-center gap-3 text-base font-bold leading-snug sm:text-lg">
+        <img
+          src={momoLogo.url}
+          alt="MOMO"
+          className="h-8 w-auto sm:h-10"
+          width={860}
+          height={238}
+        />
+        <span>Kinderhaus</span>
+      </p>
       <h1 className="mt-2 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">1-3 Jahre</h1>
 
       <p className="mt-8 text-base font-bold leading-snug sm:text-lg">

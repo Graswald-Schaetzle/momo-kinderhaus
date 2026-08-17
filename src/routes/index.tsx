@@ -76,7 +76,7 @@ function Index() {
     <main className="min-h-screen pb-2 text-center">
       <SiteHeader />
 
-      <div className="mx-auto mt-20 w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
+      <div className="mx-auto mt-4 w-full max-w-5xl overflow-hidden px-6 sm:mt-20 sm:px-10 md:px-14">
         <button
           type="button"
           onClick={toggleSnore}
@@ -124,7 +124,7 @@ function Index() {
         </button>
       </div>
 
-      <p className="mt-2 px-6 font-display text-2xl font-normal leading-tight sm:text-3xl md:text-4xl">START JAN. 2027</p>
+      <p className="mt-1 px-6 font-display text-xl font-normal leading-tight sm:mt-2 sm:text-3xl md:text-4xl">START JAN. 2027</p>
 
     </main>
   );

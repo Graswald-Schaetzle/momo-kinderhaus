@@ -23,7 +23,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="px-6 pt-6 text-center sm:px-10 sm:pt-8 md:px-14">
+    <header className="px-6 pt-4 text-center sm:px-10 sm:pt-8 md:px-14">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -86,20 +86,20 @@ export function SiteHeader() {
         <img
           src={momoLogo.url}
           alt="MOMO Kinderhaus"
-          className="h-20 w-auto sm:h-24 md:h-28"
+          className="h-14 w-auto sm:h-24 md:h-28"
           width={860}
           height={238}
         />
-        <span className="mt-4 font-display text-lg font-normal tracking-[0.06em] sm:text-xl md:text-2xl">
+        <span className="mt-2 font-display text-base font-normal tracking-[0.06em] sm:mt-4 sm:text-xl md:text-2xl">
           KLEINKINDERGARTEN
         </span>
       </div>
 
-      <p className="mt-20 font-display text-lg font-bold leading-relaxed sm:text-xl md:text-2xl">
+      <p className="mt-6 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
         9 Kinder, 3 Pädagoginnen, unendliche Geborgenheit.
       </p>
 
-      <h1 className="mt-10 font-display text-2xl font-normal tracking-[0.06em] sm:text-3xl md:text-4xl">1-3 Jahre</h1>
+      <h1 className="mt-4 font-display text-xl font-normal tracking-[0.06em] sm:mt-10 sm:text-3xl md:text-4xl">1-3 Jahre</h1>
     </header>
 
   );

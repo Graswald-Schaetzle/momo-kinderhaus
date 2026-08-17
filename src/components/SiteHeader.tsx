@@ -53,12 +53,12 @@ export function SiteHeader() {
           width={860}
           height={238}
         />
-        <span className="mt-3 text-base font-normal tracking-[0.06em] sm:text-lg md:text-xl">
+        <span className="mt-3 font-serif text-base font-normal tracking-[0.06em] sm:text-lg md:text-xl">
           KLEINKINDERGARTEN
         </span>
       </div>
 
-      <p className="mt-6 text-base font-bold leading-relaxed sm:text-lg">
+      <p className="mt-6 font-serif text-base font-bold leading-relaxed sm:text-lg md:text-xl">
         9 Kinder, 3 Pädagoginnen, undendliche Geborgenheit.
       </p>
 

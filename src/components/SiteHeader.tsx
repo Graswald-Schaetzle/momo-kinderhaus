@@ -98,8 +98,6 @@ export function SiteHeader() {
       <p className="mt-6 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
         9 Kinder, 3 Pädagoginnen, unendliche Geborgenheit.
       </p>
-
-      <h1 className="mt-4 font-display text-xl font-normal tracking-[0.06em] sm:mt-10 sm:text-3xl md:text-4xl">1-3 Jahre</h1>
     </header>
 
   );

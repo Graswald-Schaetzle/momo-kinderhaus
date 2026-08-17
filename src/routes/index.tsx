@@ -76,8 +76,31 @@ function Index() {
     <main className="flex flex-1 flex-col items-center pb-2 text-center">
       <SiteHeader />
 
-      <div className="flex flex-1 w-full flex-col items-center justify-center py-2">
-        <div className="mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
+      <div className="relative flex flex-1 w-full flex-col items-center justify-center py-2">
+        {/* Geschwungenes "1-3 Jahre" im Bogen über dem Rücken */}
+        <svg
+          viewBox="0 0 600 200"
+          preserveAspectRatio="xMidYMid meet"
+          className="pointer-events-none absolute left-[26%] top-[8%] z-[5] w-[50%] -translate-x-1/2 sm:left-[30%] sm:w-[40%] md:w-[34%]"
+          aria-hidden="true"
+        >
+          <path id="ageArc" d="M 100 110 Q 300 10 500 110" fill="none" />
+          <text
+            style={{
+              fontFamily: 'Cinzel, "Cormorant Garamond", Georgia, serif',
+              fill: 'var(--foreground)',
+              fontSize: '30px',
+              letterSpacing: '0.08em',
+            }}
+          >
+            <textPath href="#ageArc" startOffset="50%" textAnchor="middle">
+              1–3 Jahre
+            </textPath>
+          </text>
+        </svg>
+
+        <div className="relative mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
+
           <video
             autoPlay
             muted

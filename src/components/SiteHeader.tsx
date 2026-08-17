@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
 import momoLogo from "@/assets/momo-logo-web.svg.asset.json";
 
 const navItems = [
@@ -12,38 +11,76 @@ const navItems = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header className="px-6 pt-6 text-center sm:px-10 sm:pt-8 md:px-14">
-      <div className="fixed left-4 top-4 z-50 text-left sm:left-6 sm:top-6">
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-label={open ? "Menü schließen" : "Menü öffnen"}
-          className="flex h-10 w-10 items-center justify-center"
-        >
-          {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-        </button>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-label={open ? "Menü schließen" : "Menü öffnen"}
+        className="fixed left-4 top-4 z-[60] flex h-10 w-10 items-center justify-center sm:left-6 sm:top-6"
+      >
+        <span className="relative block h-5 w-7">
+          <span
+            className={`absolute left-0 block h-[2px] w-7 transition-all duration-300 ease-out ${
+              open
+                ? "top-1/2 rotate-45 bg-menu-overlay-foreground"
+                : "top-0 bg-foreground"
+            }`}
+          />
+          <span
+            className={`absolute left-0 top-1/2 block h-[2px] w-7 -translate-y-1/2 bg-foreground transition-all duration-200 ${
+              open ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`absolute left-0 block h-[2px] w-7 transition-all duration-300 ease-out ${
+              open
+                ? "top-1/2 -rotate-45 bg-menu-overlay-foreground"
+                : "top-full bg-foreground"
+            }`}
+          />
+        </span>
+      </button>
 
-        {open ? (
-          <nav
-            className="mt-3 flex flex-col gap-3 text-base font-bold sm:text-lg"
-            aria-label="Hauptnavigation"
-          >
-            {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="underline-offset-4 hover:underline"
-                activeProps={{ className: "underline" }}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        ) : null}
+      <div
+        className={`fixed inset-0 z-50 bg-menu-overlay transition-opacity duration-300 ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <nav
+          aria-label="Hauptnavigation"
+          aria-hidden={!open}
+          className="flex h-full flex-col items-center justify-center gap-10"
+        >
+          {navItems.map((item, i) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              tabIndex={open ? 0 : -1}
+              onClick={() => setOpen(false)}
+              style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}
+              className={`font-serif text-3xl tracking-[0.08em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 sm:text-4xl md:text-5xl ${
+                open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
+
 
       <div className="flex flex-col items-center">
         <img

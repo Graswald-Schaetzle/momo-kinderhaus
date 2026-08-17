@@ -18,14 +18,14 @@ export function SiteHeader() {
           width={860}
           height={238}
         />
-        <span className="mt-1 text-xl font-normal tracking-[0.06em] sm:text-2xl md:text-3xl">
+        <span className="mt-3 text-xl font-normal tracking-[0.06em] sm:text-2xl md:text-3xl">
           KINDERHAUS
         </span>
       </div>
 
-      <h1 className="mt-2 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">1-3 Jahre</h1>
+      <h1 className="mt-8 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">1-3 Jahre</h1>
 
-      <p className="mt-8 text-base font-bold leading-snug sm:text-lg">
+      <p className="mt-12 text-base font-bold leading-relaxed sm:text-lg">
         Mo-Fr. 07.45 - 13.45 Uhr
         <br />
         <a
@@ -39,7 +39,7 @@ export function SiteHeader() {
       </p>
 
       <nav
-        className="mt-12 flex w-full items-center justify-between text-base font-bold sm:text-lg"
+        className="mt-16 flex w-full items-center justify-between text-base font-bold sm:text-lg"
         aria-label="Hauptnavigation"
       >
         {navItems.map((item) => (

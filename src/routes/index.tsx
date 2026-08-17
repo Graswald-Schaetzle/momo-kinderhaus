@@ -40,7 +40,7 @@ function Index() {
           playsInline
           poster={heroPoster.url}
           aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
-          className="w-full scale-[1.06] mix-blend-multiply"
+          className="w-full scale-[1.06]"
         >
           <source src={heroVideoWebm.url} type="video/webm" />
           <source src={heroVideo.url} type="video/mp4" />

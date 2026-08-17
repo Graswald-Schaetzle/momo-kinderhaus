@@ -30,31 +30,58 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [snoring, setSnoring] = useState(false);
+
+  const toggleSnore = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (snoring) {
+      audio.pause();
+      setSnoring(false);
+    } else {
+      audio.volume = 0.6;
+      void audio.play().then(() => setSnoring(true)).catch(() => setSnoring(false));
+    }
+  };
+
   return (
     <main className="min-h-screen pb-40 text-center">
       <SiteHeader />
 
       <div className="mx-auto mt-20 w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={heroPoster.url}
-          aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
-          className="w-full scale-[1.06]"
-          style={{
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
-            maskImage:
-              "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
-            WebkitMaskComposite: "source-in",
-            maskComposite: "intersect",
-          }}
+        <button
+          type="button"
+          onClick={toggleSnore}
+          aria-pressed={snoring}
+          aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
+          className="block w-full cursor-pointer"
         >
-          <source src={heroVideoWebm.url} type="video/webm" />
-          <source src={heroVideo.url} type="video/mp4" />
-        </video>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroPoster.url}
+            aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
+            className="w-full scale-[1.06]"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
+              maskImage:
+                "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
+              WebkitMaskComposite: "source-in",
+              maskComposite: "intersect",
+            }}
+          >
+            <source src={heroVideoWebm.url} type="video/webm" />
+            <source src={heroVideo.url} type="video/mp4" />
+          </video>
+        </button>
+        <audio ref={audioRef} src={snoreAudio.url} loop preload="none" />
+        <p className="mt-2 text-sm opacity-70">
+          {snoring ? "Psst … er schnarcht (Klick zum Ausschalten)" : "Klick auf den Hund für Schnarchgeräusche"}
+        </p>
       </div>
 
       <p className="mt-8 px-6 text-3xl font-normal leading-tight sm:text-4xl md:text-5xl">START JAN. 2027</p>

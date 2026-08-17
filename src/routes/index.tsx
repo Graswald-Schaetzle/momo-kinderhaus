@@ -41,6 +41,14 @@ function Index() {
           poster={heroPoster.url}
           aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
           className="w-full scale-[1.06]"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
+            WebkitMaskComposite: "source-in",
+            maskComposite: "intersect",
+          }}
         >
           <source src={heroVideoWebm.url} type="video/webm" />
           <source src={heroVideo.url} type="video/mp4" />

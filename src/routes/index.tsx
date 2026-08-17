@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import heroVideo from "@/assets/momo-hund.mp4.asset.json";
+import heroVideoWebm from "@/assets/momo-hund.webm.asset.json";
+import heroPoster from "@/assets/momo-hund-poster.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,14 +34,17 @@ function Index() {
 
       <div className="mx-auto mt-20 w-full max-w-5xl px-6 sm:px-10 md:px-14">
         <video
-          src={heroVideo.url}
           autoPlay
           muted
           loop
           playsInline
+          poster={heroPoster.url}
           aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
           className="w-full mix-blend-multiply"
-        />
+        >
+          <source src={heroVideoWebm.url} type="video/webm" />
+          <source src={heroVideo.url} type="video/mp4" />
+        </video>
       </div>
 
       <p className="mt-8 px-6 text-base font-bold sm:px-10 md:px-14">Eröffnung Januar 2027</p>

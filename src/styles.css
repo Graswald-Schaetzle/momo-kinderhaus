@@ -154,4 +154,18 @@
 
 
 
+  /* SVG textPath font-size: matches Start Januar 2027 (text-xl/3xl/4xl) across breakpoints */
+  .age-arc-text {
+    font-size: 61px;
+  }
+  @media (min-width: 640px) {
+    .age-arc-text {
+      font-size: 63px;
+    }
+  }
+  @media (min-width: 768px) {
+    .age-arc-text {
+      font-size: 74px;
+    }
+  }
 }

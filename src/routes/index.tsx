@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import heroVideo from "@/assets/momo-hund3.mp4.asset.json";
 import heroVideoWebm from "@/assets/momo-hund3.webm.asset.json";
 import heroPoster from "@/assets/momo-hund3-poster.jpg.asset.json";
-import snoreAudio from "@/assets/momo-schnarchen.mp3.asset.json";
+import snoreAudio from "@/assets/momo-schnarchen-2.mp3.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,6 +32,31 @@ export const Route = createFileRoute("/")({
 function Index() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [snoring, setSnoring] = useState(false);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = 0.6;
+
+    const start = () => {
+      void audio
+        .play()
+        .then(() => setSnoring(true))
+        .catch(() => setSnoring(false));
+    };
+
+    start();
+
+    const onInteract = () => start();
+    window.addEventListener("pointerdown", onInteract);
+    window.addEventListener("keydown", onInteract);
+    window.addEventListener("touchstart", onInteract);
+    return () => {
+      window.removeEventListener("pointerdown", onInteract);
+      window.removeEventListener("keydown", onInteract);
+      window.removeEventListener("touchstart", onInteract);
+    };
+  }, []);
 
   const toggleSnore = () => {
     const audio = audioRef.current;
@@ -78,9 +103,9 @@ function Index() {
             <source src={heroVideo.url} type="video/mp4" />
           </video>
         </button>
-        <audio ref={audioRef} src={snoreAudio.url} loop preload="none" />
+        <audio ref={audioRef} src={snoreAudio.url} loop autoPlay preload="auto" />
         <p className="mt-2 text-sm opacity-70">
-          {snoring ? "Psst … er schnarcht (Klick zum Ausschalten)" : "Klick auf den Hund für Schnarchgeräusche"}
+          {snoring ? "Psst … er schnarcht (Klick zum Ausschalten)" : "Klick auf den Hund für Ton"}
         </p>
       </div>
 

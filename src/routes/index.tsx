@@ -81,7 +81,7 @@ function Index() {
         <svg
           viewBox="0 0 600 200"
           preserveAspectRatio="xMidYMid meet"
-          className="pointer-events-none absolute left-[30%] top-[10%] z-[5] w-[50%] -translate-x-1/2 sm:left-[34%] sm:w-[40%] md:w-[34%]"
+          className="pointer-events-none absolute left-[26%] top-[8%] z-[5] w-[50%] -translate-x-1/2 sm:left-[30%] sm:w-[40%] md:w-[34%]"
           aria-hidden="true"
         >
           <path id="ageArc" d="M 100 110 Q 300 10 500 110" fill="none" />

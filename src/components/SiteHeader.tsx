@@ -23,7 +23,7 @@ export function SiteHeader() {
       <h1 className="mt-2 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">1-3 Jahre</h1>
 
       <p className="mt-8 text-base font-bold leading-snug sm:text-lg">
-        Mo-Fr. 07.45- 13.45 Uhr
+        Mo-Fr. 07.45 - 13.45 Uhr
         <br />
         <a
           href="https://maps.app.goo.gl/GWdSX3YC2a3odJEM8"

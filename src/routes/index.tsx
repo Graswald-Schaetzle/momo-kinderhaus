@@ -32,7 +32,7 @@ function Index() {
     <main className="min-h-screen pb-40 text-center">
       <SiteHeader />
 
-      <div className="mx-auto mt-20 w-full max-w-5xl px-6 sm:px-10 md:px-14">
+      <div className="mx-auto mt-20 w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
         <video
           autoPlay
           muted
@@ -40,7 +40,7 @@ function Index() {
           playsInline
           poster={heroPoster.url}
           aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
-          className="w-full mix-blend-multiply"
+          className="w-full scale-[1.06] mix-blend-multiply"
         >
           <source src={heroVideoWebm.url} type="video/webm" />
           <source src={heroVideo.url} type="video/mp4" />

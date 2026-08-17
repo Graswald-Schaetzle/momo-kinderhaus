@@ -80,9 +80,9 @@ function Index() {
         <div className="relative mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
           {/* Geschwungenes "1-3 Jahre" im Bogen über dem Rücken */}
           <svg
-            viewBox="0 0 600 160"
+            viewBox="0 0 600 200"
             preserveAspectRatio="xMidYMid meet"
-            className="pointer-events-none absolute left-[30%] top-[-8%] z-[5] w-[60%] -translate-x-1/2 sm:left-[35%] sm:w-[45%] md:w-[38%]"
+            className="pointer-events-none absolute left-[28%] top-[-22%] z-[5] w-[55%] -translate-x-1/2 sm:left-[32%] sm:w-[42%] md:w-[36%]"
             aria-hidden="true"
           >
             <path id="ageArc" d="M 80 150 Q 300 0 520 150" fill="none" />

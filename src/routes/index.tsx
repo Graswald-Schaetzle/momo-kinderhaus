@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
-import heroVideo from "@/assets/momo-hund2.mp4.asset.json";
-import heroVideoWebm from "@/assets/momo-hund2.webm.asset.json";
-import heroPoster from "@/assets/momo-hund2-poster.jpg.asset.json";
+import heroVideo from "@/assets/momo-hund3.mp4.asset.json";
+import heroVideoWebm from "@/assets/momo-hund3.webm.asset.json";
+import heroPoster from "@/assets/momo-hund3-poster.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -71,7 +71,7 @@ function Index() {
   };
 
   return (
-    <main className="min-h-screen pb-40 text-center">
+    <main className="min-h-screen pb-12 text-center">
       <SiteHeader />
 
       <div className="mx-auto mt-20 w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">

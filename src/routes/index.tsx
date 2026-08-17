@@ -73,10 +73,10 @@ function Index() {
   };
 
   return (
-    <main className="pb-2 text-center sm:min-h-screen">
+    <main className="flex min-h-screen flex-col items-center pb-2 text-center">
       <SiteHeader />
 
-      <div className="relative mx-auto mt-4 w-full max-w-5xl overflow-hidden px-6 sm:mt-20 sm:px-10 md:px-14">
+      <div className="mx-auto mt-6 w-full max-w-5xl overflow-hidden px-6 sm:mt-16 sm:px-10 md:px-14">
         <video
           autoPlay
           muted
@@ -98,25 +98,26 @@ function Index() {
           <source src={heroVideo.url} type="video/mp4" />
         </video>
         <audio ref={audioRef} src={snoreAudio.url} loop autoPlay preload="auto" />
-        <button
-          type="button"
-          onClick={toggleSnore}
-          aria-pressed={snoring}
-          aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-          className="absolute bottom-4 left-[14%] z-10 flex items-center transition-opacity hover:opacity-80 sm:bottom-6"
-        >
-          <img
-            src={snoring ? soundOnIcon : soundOffIcon}
-            alt={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-            loading="lazy"
-            width={32}
-            height={32}
-            className="h-8 w-8 object-contain sm:h-10 sm:w-10"
-          />
-        </button>
       </div>
 
-      <p className="mt-1 px-6 font-display text-xl font-normal leading-tight sm:mt-2 sm:text-3xl md:text-4xl">Start Januar 2027</p>
+      <button
+        type="button"
+        onClick={toggleSnore}
+        aria-pressed={snoring}
+        aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
+        className="relative z-10 mt-3 flex items-center transition-opacity hover:opacity-80"
+      >
+        <img
+          src={snoring ? soundOnIcon : soundOffIcon}
+          alt={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
+          loading="lazy"
+          width={32}
+          height={32}
+          className="h-8 w-8 object-contain sm:h-10 sm:w-10"
+        />
+      </button>
+
+      <p className="mt-4 px-6 font-display text-xl font-normal leading-tight sm:mt-6 sm:text-3xl md:text-4xl">Start Januar 2027</p>
 
     </main>
   );

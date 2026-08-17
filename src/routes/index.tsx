@@ -76,42 +76,34 @@ function Index() {
     <main className="pb-2 text-center sm:min-h-screen">
       <SiteHeader />
 
-      <div className="mx-auto mt-4 w-full max-w-5xl overflow-hidden px-6 sm:mt-20 sm:px-10 md:px-14">
-        <button
-          type="button"
-          onClick={toggleSnore}
-          aria-pressed={snoring}
-          aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-          className="block w-full cursor-pointer"
+      <div className="relative mx-auto mt-4 w-full max-w-5xl overflow-hidden px-6 sm:mt-20 sm:px-10 md:px-14">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroPoster.url}
+          aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
+          className="w-full scale-[1.06]"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
+            WebkitMaskComposite: "source-in",
+            maskComposite: "intersect",
+          }}
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroPoster.url}
-            aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
-            className="w-full scale-[1.06]"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
-              maskImage:
-                "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
-              WebkitMaskComposite: "source-in",
-              maskComposite: "intersect",
-            }}
-          >
-            <source src={heroVideoWebm.url} type="video/webm" />
-            <source src={heroVideo.url} type="video/mp4" />
-          </video>
-        </button>
+          <source src={heroVideoWebm.url} type="video/webm" />
+          <source src={heroVideo.url} type="video/mp4" />
+        </video>
         <audio ref={audioRef} src={snoreAudio.url} loop autoPlay preload="auto" />
         <button
           type="button"
           onClick={toggleSnore}
           aria-pressed={snoring}
           aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-          className="relative z-10 ml-[8%] mt-2 flex items-center transition-opacity hover:opacity-100"
+          className="absolute bottom-4 left-[14%] z-10 flex items-center transition-opacity hover:opacity-80 sm:bottom-6"
         >
           <img
             src={snoring ? soundOnIcon : soundOffIcon}

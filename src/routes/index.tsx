@@ -78,25 +78,23 @@ function Index() {
 
       <div className="flex flex-1 w-full flex-col items-center justify-center py-2">
         <div className="relative mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
-          {/* Geschwungenes "1-3 Jahre" über dem Hund */}
+          {/* Geschwungenes "1-3 Jahre" im Bogen über dem Rücken */}
           <svg
-            viewBox="0 0 600 120"
-            className="pointer-events-none absolute left-1/2 top-[2%] z-[5] w-[80%] -translate-x-1/2 sm:w-[65%] md:w-[50%]"
+            viewBox="0 0 600 160"
+            preserveAspectRatio="xMidYMid meet"
+            className="pointer-events-none absolute left-[30%] top-[-8%] z-[5] w-[60%] -translate-x-1/2 sm:left-[35%] sm:w-[45%] md:w-[38%]"
             aria-hidden="true"
           >
-            <defs>
-              <path id="ageArc" d="M 50 110 Q 300 -30 550 110" fill="none" />
-            </defs>
+            <path id="ageArc" d="M 80 150 Q 300 0 520 150" fill="none" />
             <text
               style={{
                 fontFamily: 'Cinzel, "Cormorant Garamond", Georgia, serif',
                 fill: 'var(--foreground)',
-                fontSize: '34px',
+                fontSize: '30px',
                 letterSpacing: '0.08em',
-                fontWeight: 400,
               }}
             >
-              <textPath xlinkHref="#ageArc" startOffset="50%" textAnchor="middle">
+              <textPath href="#ageArc" startOffset="50%" textAnchor="middle">
                 1–3 Jahre
               </textPath>
             </text>

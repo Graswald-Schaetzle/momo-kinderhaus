@@ -73,7 +73,7 @@ function Index() {
   };
 
   return (
-    <main className="min-h-screen pb-2 text-center">
+    <main className="pb-2 text-center sm:min-h-screen">
       <SiteHeader />
 
       <div className="mx-auto mt-4 w-full max-w-5xl overflow-hidden px-6 sm:mt-20 sm:px-10 md:px-14">

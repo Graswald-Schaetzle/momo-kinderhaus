@@ -53,7 +53,7 @@ export function SiteHeader() {
           width={860}
           height={238}
         />
-        <span className="mt-3 text-xl font-normal tracking-[0.06em] sm:text-2xl md:text-3xl">
+        <span className="mt-3 text-base font-normal tracking-[0.06em] sm:text-lg md:text-xl">
           KLEINKINDERGARTEN
         </span>
       </div>

@@ -13,7 +13,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="px-6 pt-4 text-center sm:px-10 sm:pt-6 md:px-14">
+    <header className="px-6 pt-6 text-center sm:px-10 sm:pt-8 md:px-14">
       <div className="fixed left-4 top-4 z-50 text-left sm:left-6 sm:top-6">
         <button
           type="button"

@@ -77,7 +77,32 @@ function Index() {
       <SiteHeader />
 
       <div className="flex flex-1 w-full flex-col items-center justify-center py-2">
-        <div className="mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
+        <div className="relative mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
+          {/* Geschwungenes "1-3 Jahre" über dem Hund */}
+          <svg
+            viewBox="0 0 600 80"
+            className="pointer-events-none absolute left-1/2 top-[18%] z-[5] w-[70%] -translate-x-1/2 sm:w-[55%] md:w-[45%]"
+            aria-hidden="true"
+          >
+            <defs>
+              <path id="ageArc" d="M 40 75 Q 300 -25 560 75" fill="none" />
+            </defs>
+            <text
+              className="font-display"
+              style={{
+                fontFamily: 'Cinzel, "Cormorant Garamond", Georgia, serif',
+                fill: 'var(--foreground)',
+                fontSize: '22px',
+                letterSpacing: '0.06em',
+                fontWeight: 400,
+              }}
+            >
+              <textPath href="#ageArc" startOffset="50%" textAnchor="middle">
+                1–3 Jahre
+              </textPath>
+            </text>
+          </svg>
+
           <video
             autoPlay
             muted

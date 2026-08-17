@@ -63,19 +63,7 @@ export function SiteHeader() {
       </p>
 
       <h1 className="mt-8 text-xl font-normal tracking-[0.06em] sm:text-2xl md:text-3xl">1-3 Jahre</h1>
-
-      <p className="mt-12 text-base font-bold leading-relaxed sm:text-lg">
-        Mo-Fr. 07.45 - 13.45 Uhr
-        <br />
-        <a
-          href="https://maps.app.goo.gl/GWdSX3YC2a3odJEM8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline underline-offset-4"
-        >
-          Mozartstraße 4, 71686 Remseck am Neckar
-        </a>
-      </p>
     </header>
+
   );
 }

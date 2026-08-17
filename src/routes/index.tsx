@@ -111,15 +111,15 @@ function Index() {
           onClick={toggleSnore}
           aria-pressed={snoring}
           aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-          className="-mt-6 ml-[10%] flex items-center transition-opacity hover:opacity-100"
+          className="relative z-10 ml-[8%] mt-2 flex items-center transition-opacity hover:opacity-100"
         >
           <img
             src={snoring ? soundOnIcon : soundOffIcon}
             alt={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
             loading="lazy"
-            width={48}
-            height={48}
-            className="h-12 w-12 object-contain"
+            width={32}
+            height={32}
+            className="h-8 w-8 object-contain sm:h-10 sm:w-10"
           />
         </button>
       </div>

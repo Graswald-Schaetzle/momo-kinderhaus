@@ -103,9 +103,9 @@ function Index() {
             <source src={heroVideo.url} type="video/mp4" />
           </video>
         </button>
-        <audio ref={audioRef} src={snoreAudio.url} loop preload="none" />
+        <audio ref={audioRef} src={snoreAudio.url} loop autoPlay preload="auto" />
         <p className="mt-2 text-sm opacity-70">
-          {snoring ? "Psst … er schnarcht (Klick zum Ausschalten)" : "Klick auf den Hund für Schnarchgeräusche"}
+          {snoring ? "Psst … er schnarcht (Klick zum Ausschalten)" : "Klick auf den Hund für Ton"}
         </p>
       </div>
 

@@ -19,7 +19,8 @@
  */
 
 @theme inline {
-  --font-sans: "Avenir", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

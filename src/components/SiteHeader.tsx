@@ -23,7 +23,7 @@ export function SiteHeader() {
         </span>
       </div>
 
-      <h1 className="mt-8 text-4xl font-normal leading-tight sm:text-5xl md:text-6xl">1-3 Jahre</h1>
+      <h1 className="mt-8 text-3xl font-normal leading-tight sm:text-4xl md:text-5xl">1-3 Jahre</h1>
 
       <p className="mt-12 text-base font-bold leading-relaxed sm:text-lg">
         Mo-Fr. 07.45 - 13.45 Uhr

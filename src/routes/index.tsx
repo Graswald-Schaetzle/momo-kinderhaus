@@ -76,7 +76,7 @@ function Index() {
     <main className="flex flex-1 flex-col items-center pb-2 text-center">
       <SiteHeader />
 
-      <div className="flex flex-1 w-full flex-col items-center justify-around py-2">
+      <div className="flex flex-1 w-full flex-col items-center justify-center py-2">
         <div className="mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
           <video
             autoPlay

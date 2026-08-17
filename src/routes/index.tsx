@@ -73,37 +73,40 @@ function Index() {
   };
 
   return (
-    <main className="pb-2 text-center sm:min-h-screen">
+    <main className="flex flex-1 flex-col items-center pb-2 text-center">
       <SiteHeader />
 
-      <div className="relative mx-auto mt-4 w-full max-w-5xl overflow-hidden px-6 sm:mt-20 sm:px-10 md:px-14">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={heroPoster.url}
-          aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
-          className="w-full scale-[1.06]"
-          style={{
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
-            maskImage:
-              "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
-            WebkitMaskComposite: "source-in",
-            maskComposite: "intersect",
-          }}
-        >
-          <source src={heroVideoWebm.url} type="video/webm" />
-          <source src={heroVideo.url} type="video/mp4" />
-        </video>
-        <audio ref={audioRef} src={snoreAudio.url} loop autoPlay preload="auto" />
+      <div className="flex flex-1 w-full flex-col items-center justify-center py-2">
+        <div className="mx-auto w-full max-w-5xl overflow-hidden px-6 sm:px-10 md:px-14">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroPoster.url}
+            aria-label="Animierte Aquarell-Illustration: schlummernder Weimaraner"
+            className="w-full scale-[1.06]"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
+              maskImage:
+                "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%)",
+              WebkitMaskComposite: "source-in",
+              maskComposite: "intersect",
+            }}
+          >
+            <source src={heroVideoWebm.url} type="video/webm" />
+            <source src={heroVideo.url} type="video/mp4" />
+          </video>
+          <audio ref={audioRef} src={snoreAudio.url} loop autoPlay preload="auto" />
+        </div>
+
         <button
           type="button"
           onClick={toggleSnore}
           aria-pressed={snoring}
           aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
-          className="absolute bottom-4 left-[14%] z-10 flex items-center transition-opacity hover:opacity-80 sm:bottom-6"
+          className="relative z-10 mt-4 inline-flex items-center transition-opacity hover:opacity-80"
         >
           <img
             src={snoring ? soundOnIcon : soundOffIcon}
@@ -114,9 +117,9 @@ function Index() {
             className="h-8 w-8 object-contain sm:h-10 sm:w-10"
           />
         </button>
-      </div>
 
-      <p className="mt-1 px-6 font-display text-xl font-normal leading-tight sm:mt-2 sm:text-3xl md:text-4xl">Start Januar 2027</p>
+        <p className="mt-4 px-6 font-display text-xl font-normal leading-tight sm:text-3xl md:text-4xl">Start Januar 2027</p>
+      </div>
 
     </main>
   );

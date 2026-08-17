@@ -62,7 +62,7 @@ export function SiteHeader() {
         9 Kinder, 3 Pädagoginnen, undendliche Geborgenheit.
       </p>
 
-      <h1 className="mt-8 text-3xl font-normal leading-tight sm:text-4xl md:text-5xl">1-3 Jahre</h1>
+      <h1 className="mt-8 text-xl font-normal tracking-[0.06em] sm:text-2xl md:text-3xl">1-3 Jahre</h1>
 
       <p className="mt-12 text-base font-bold leading-relaxed sm:text-lg">
         Mo-Fr. 07.45 - 13.45 Uhr

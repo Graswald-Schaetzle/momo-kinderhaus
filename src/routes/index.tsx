@@ -64,10 +64,7 @@ function Index() {
   };
 
   return (
-    <main
-      className="flex min-h-screen flex-1 flex-col items-center pb-2 text-center"
-      style={{ backgroundColor: "#F3E7A8" }}
-    >
+    <main className="flex flex-1 flex-col items-center pb-2 text-center">
       <SiteHeader showSlogan />
 
       <div className="relative mx-auto flex flex-1 w-full max-w-5xl flex-col items-center justify-center py-2">

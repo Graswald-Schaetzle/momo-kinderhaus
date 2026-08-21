@@ -64,7 +64,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
             to="/"
             onClick={() => setOpen(false)}
             tabIndex={open ? 0 : -1}
-            className="flex flex-col items-center pt-16 sm:pt-20"
+            className="no-underline flex flex-col items-center pt-16 sm:pt-20"
           >
             <img
               src={momoLogo.url}
@@ -95,7 +95,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
                 tabIndex={open ? 0 : -1}
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}
-                className={`font-display text-xl font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 sm:text-2xl md:text-3xl ${
+                className={`no-underline font-display text-xl font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 sm:text-2xl md:text-3xl ${
                   open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
                 }`}
               >
@@ -107,7 +107,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
       </div>
 
 
-      <Link to="/" className="flex flex-col items-center">
+      <Link to="/" className="no-underline flex flex-col items-center">
         <img
           src={momoLogo.url}
           alt="MOMO Kinderhaus"

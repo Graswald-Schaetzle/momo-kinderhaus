@@ -15,7 +15,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: "PÄDAGOGIK",
+    label: "UNSER ALLTAG",
     children: [
       { to: "/paedagogik", label: "Pädagogik" },
       { to: "/paedagogik/pflege", label: "Pflege" },

@@ -76,7 +76,7 @@ function UeberUns() {
               className="grid grid-cols-1 items-center gap-6 py-10 sm:gap-12 sm:py-16 md:grid-cols-2"
             >
               <div
-                className={`${imageFirst ? "md:order-2" : "md:order-1"} ${
+                className={`${imageFirst ? "order-2 md:order-2" : "order-1 md:order-1"} ${
                   imageFirst ? "md:pl-6" : "md:pr-6"
                 }`}
               >
@@ -88,7 +88,7 @@ function UeberUns() {
                 </p>
               </div>
 
-              <div className={imageFirst ? "md:order-1" : "md:order-2"}>
+              <div className={imageFirst ? "order-1 md:order-1" : "order-2 md:order-2"}>
                 <img
                   src={section.image}
                   alt={section.alt}

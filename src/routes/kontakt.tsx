@@ -28,7 +28,7 @@ export const Route = createFileRoute("/kontakt")({
 
 function Kontakt() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,9 +50,9 @@ function Kontakt() {
         {submitted ? (
           <div className="mx-auto mt-10 max-w-xl rounded-lg bg-black/5 px-8 py-10">
             <p className="font-display text-lg font-normal leading-relaxed">
-              Vielen Dank! Ihre Nachricht ist bei uns eingegangen.
+              Vielen Dank! Ihre Nachricht wurde versendet.
               <br />
-              Wir melden uns in Kürze bei Ihnen.
+              Wir melden uns in aller Schnelle bei Ihnen.
             </p>
           </div>
         ) : (
@@ -86,6 +86,20 @@ function Kontakt() {
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className="rounded-md border border-black/20 bg-white/50 px-4 py-3 text-sm focus:border-black/40 focus:outline-none sm:text-base"
                 placeholder="ihre@email.de"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="subject" className="text-sm font-bold sm:text-base">
+                Betreff
+              </label>
+              <input
+                id="subject"
+                type="text"
+                required
+                value={form.subject}
+                onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                className="rounded-md border border-black/20 bg-white/50 px-4 py-3 text-sm focus:border-black/40 focus:outline-none sm:text-base"
+                placeholder="Betreff Ihrer Nachricht"
               />
             </div>
             <div className="flex flex-col gap-2">

@@ -4,6 +4,7 @@ import momoLogo from "@/assets/momo-logo-thin.svg.asset.json";
 
 const navItems = [
   { to: "/ueber-uns", label: "ÜBER UNS" },
+  { to: "/paedagogik", label: "PÄDAGOGIK" },
   { to: "/preise", label: "PREISE" },
   { to: "/kontakt", label: "KONTAKT" },
 ] as const;

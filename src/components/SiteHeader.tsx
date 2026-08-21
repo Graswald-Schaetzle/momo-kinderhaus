@@ -76,7 +76,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
               height={238}
             />
             <span
-              className={`mt-1 font-display text-xs font-normal tracking-[0.06em] text-menu-overlay-foreground transition-opacity duration-300 sm:mt-2 sm:text-sm md:text-base ${
+              className={`mt-1 font-display text-xs font-normal tracking-[0.06em] text-black transition-opacity duration-300 sm:mt-2 sm:text-sm md:text-base ${
                 open ? "opacity-100" : "opacity-0"
               }`}
             >

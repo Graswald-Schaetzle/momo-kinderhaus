@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";

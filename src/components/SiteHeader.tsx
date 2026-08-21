@@ -8,7 +8,7 @@ const navItems = [
   { to: "/kontakt", label: "KONTAKT" },
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {

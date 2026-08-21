@@ -17,9 +17,9 @@ export function SiteFooter() {
         <br />
         <Link
           to="/kontakt"
-          className="mt-2 inline-block font-display text-sm font-bold tracking-[0.08em] underline underline-offset-4 sm:text-lg"
+          className="underline underline-offset-4"
         >
-          Kontaktieren Sie uns
+          Kontakt
         </Link>
       </p>
     </footer>

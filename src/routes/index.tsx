@@ -31,20 +31,34 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const SNORE_MUTED_KEY = "momo-snore-muted";
+
 function Index() {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [snoring, setSnoring] = useState(false);
+  // Persisted muted state: once the user turns the snoring off, it stays off
+  // across page navigations until they explicitly turn it back on.
+  const [muted, setMuted] = useState(false);
 
   useEffect(() => {
+    const stored = localStorage.getItem(SNORE_MUTED_KEY);
+    const startMuted = stored === "true";
+    setMuted(startMuted);
+
     const audio = audioRef.current;
     if (!audio) return;
     audio.volume = 0.6;
 
+    // If the user previously muted, do not auto-play.
+    if (startMuted) {
+      audio.pause();
+      return;
+    }
+
     const start = () => {
       void audio
         .play()
-        .then(() => setSnoring(true))
-        .catch(() => setSnoring(false));
+        .then(() => setMuted(false))
+        .catch(() => {});
     };
 
     start();
@@ -63,12 +77,16 @@ function Index() {
   const toggleSnore = () => {
     const audio = audioRef.current;
     if (!audio) return;
-    if (snoring) {
+    if (!muted) {
+      // Turn OFF and persist so it stays off across navigations.
       audio.pause();
-      setSnoring(false);
+      setMuted(true);
+      localStorage.setItem(SNORE_MUTED_KEY, "true");
     } else {
+      // Turn back ON — user explicitly re-enabled.
       audio.volume = 0.6;
-      void audio.play().then(() => setSnoring(true)).catch(() => setSnoring(false));
+      void audio.play().then(() => setMuted(false)).catch(() => {});
+      localStorage.setItem(SNORE_MUTED_KEY, "false");
     }
   };
 

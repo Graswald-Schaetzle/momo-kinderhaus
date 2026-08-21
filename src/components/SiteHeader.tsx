@@ -88,7 +88,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
           <nav
             aria-label="Hauptnavigation"
             aria-hidden={!open}
-            className="flex flex-1 flex-col items-center justify-center gap-6 pb-32 sm:gap-8 sm:pb-40"
+            className="flex flex-1 flex-col items-center justify-center gap-6 sm:gap-8"
           >
             {navItems.map((item, i) => (
               <Link
@@ -105,6 +105,29 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
               </Link>
             ))}
           </nav>
+          <footer className="pb-8 pt-4 text-center sm:pb-12">
+            <p className="font-display text-sm font-bold leading-relaxed text-menu-overlay-foreground sm:text-lg">
+              Mo-Fr. 07.45 - 13.45 Uhr
+              <br />
+              <a
+                href="https://maps.app.goo.gl/GWdSX3YC2a3odJEM8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-underline hover:opacity-70"
+              >
+                Mozartstraße 4, 71686 Remseck am Neckar
+              </a>
+              <br />
+              <Link
+                to="/kontakt"
+                onClick={() => setOpen(false)}
+                tabIndex={open ? 0 : -1}
+                className="no-underline hover:opacity-70"
+              >
+                Kontakt
+              </Link>
+            </p>
+          </footer>
         </div>
       </div>
 

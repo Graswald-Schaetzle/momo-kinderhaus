@@ -36,16 +36,13 @@ function Kontakt() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col pb-8 text-center">
+    <main className="flex min-h-screen flex-col pb-2 text-center">
       <SiteHeader />
-      <section className="flex flex-1 flex-col items-center px-6 pt-10 sm:px-10 md:px-14">
-        <h2 className="font-display text-2xl font-normal tracking-[0.08em] sm:text-3xl">
+      <section className="flex flex-1 flex-col items-center px-4 pt-2 sm:px-10 sm:pt-10 md:px-14">
+        <h2 className="font-display text-xl font-normal tracking-[0.08em] sm:text-3xl">
           Kontakt
         </h2>
 
-        <p className="mx-auto mt-6 max-w-xl text-sm font-bold leading-relaxed sm:text-lg">
-          {"\n"}
-        </p>
 
         {submitted ? (
           <div className="mx-auto mt-10 max-w-xl rounded-lg bg-black/5 px-8 py-10">
@@ -58,7 +55,7 @@ function Kontakt() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="mx-auto mt-10 flex w-full max-w-xl flex-col gap-5 text-left"
+            className="mx-auto mt-4 flex w-full max-w-xl flex-col gap-3 text-left sm:mt-10 sm:gap-5"
           >
             <div className="flex flex-col gap-2">
               <label htmlFor="name" className="text-sm font-bold sm:text-base">

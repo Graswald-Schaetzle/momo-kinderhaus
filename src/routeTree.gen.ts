@@ -16,6 +16,9 @@ import { Route as PreiseRouteImport } from './routes/preise'
 import { Route as RaeumeRouteImport } from './routes/raeume'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
+import { Route as PaedagogikAngeboteRouteImport } from './routes/paedagogik/angebote'
+import { Route as PaedagogikEssenRouteImport } from './routes/paedagogik/essen'
+import { Route as PaedagogikPflegeRouteImport } from './routes/paedagogik/pflege'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,34 +55,58 @@ const UeberUnsRoute = UeberUnsRouteImport.update({
   path: '/ueber-uns',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaedagogikAngeboteRoute = PaedagogikAngeboteRouteImport.update({
+  id: '/angebote',
+  path: '/angebote',
+  getParentRoute: () => PaedagogikRoute,
+} as any)
+const PaedagogikEssenRoute = PaedagogikEssenRouteImport.update({
+  id: '/essen',
+  path: '/essen',
+  getParentRoute: () => PaedagogikRoute,
+} as any)
+const PaedagogikPflegeRoute = PaedagogikPflegeRouteImport.update({
+  id: '/pflege',
+  path: '/pflege',
+  getParentRoute: () => PaedagogikRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
-  '/paedagogik': typeof PaedagogikRoute
+  '/paedagogik': typeof PaedagogikRouteWithChildren
   '/preise': typeof PreiseRoute
   '/raeume': typeof RaeumeRoute
   '/team': typeof TeamRoute
   '/ueber-uns': typeof UeberUnsRoute
+  '/paedagogik/angebote': typeof PaedagogikAngeboteRoute
+  '/paedagogik/essen': typeof PaedagogikEssenRoute
+  '/paedagogik/pflege': typeof PaedagogikPflegeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
-  '/paedagogik': typeof PaedagogikRoute
+  '/paedagogik': typeof PaedagogikRouteWithChildren
   '/preise': typeof PreiseRoute
   '/raeume': typeof RaeumeRoute
   '/team': typeof TeamRoute
   '/ueber-uns': typeof UeberUnsRoute
+  '/paedagogik/angebote': typeof PaedagogikAngeboteRoute
+  '/paedagogik/essen': typeof PaedagogikEssenRoute
+  '/paedagogik/pflege': typeof PaedagogikPflegeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
-  '/paedagogik': typeof PaedagogikRoute
+  '/paedagogik': typeof PaedagogikRouteWithChildren
   '/preise': typeof PreiseRoute
   '/raeume': typeof RaeumeRoute
   '/team': typeof TeamRoute
   '/ueber-uns': typeof UeberUnsRoute
+  '/paedagogik/angebote': typeof PaedagogikAngeboteRoute
+  '/paedagogik/essen': typeof PaedagogikEssenRoute
+  '/paedagogik/pflege': typeof PaedagogikPflegeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +118,9 @@ export interface FileRouteTypes {
     | '/raeume'
     | '/team'
     | '/ueber-uns'
+    | '/paedagogik/angebote'
+    | '/paedagogik/essen'
+    | '/paedagogik/pflege'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +130,9 @@ export interface FileRouteTypes {
     | '/raeume'
     | '/team'
     | '/ueber-uns'
+    | '/paedagogik/angebote'
+    | '/paedagogik/essen'
+    | '/paedagogik/pflege'
   id:
     | '__root__'
     | '/'
@@ -109,12 +142,15 @@ export interface FileRouteTypes {
     | '/raeume'
     | '/team'
     | '/ueber-uns'
+    | '/paedagogik/angebote'
+    | '/paedagogik/essen'
+    | '/paedagogik/pflege'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   KontaktRoute: typeof KontaktRoute
-  PaedagogikRoute: typeof PaedagogikRoute
+  PaedagogikRoute: typeof PaedagogikRouteWithChildren
   PreiseRoute: typeof PreiseRoute
   RaeumeRoute: typeof RaeumeRoute
   TeamRoute: typeof TeamRoute
@@ -172,13 +208,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UeberUnsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/paedagogik/angebote': {
+      id: '/paedagogik/angebote'
+      path: '/angebote'
+      fullPath: '/paedagogik/angebote'
+      preLoaderRoute: typeof PaedagogikAngeboteRouteImport
+      parentRoute: typeof PaedagogikRoute
+    }
+    '/paedagogik/essen': {
+      id: '/paedagogik/essen'
+      path: '/essen'
+      fullPath: '/paedagogik/essen'
+      preLoaderRoute: typeof PaedagogikEssenRouteImport
+      parentRoute: typeof PaedagogikRoute
+    }
+    '/paedagogik/pflege': {
+      id: '/paedagogik/pflege'
+      path: '/pflege'
+      fullPath: '/paedagogik/pflege'
+      preLoaderRoute: typeof PaedagogikPflegeRouteImport
+      parentRoute: typeof PaedagogikRoute
+    }
   }
 }
+
+interface PaedagogikRouteChildren {
+  PaedagogikAngeboteRoute: typeof PaedagogikAngeboteRoute
+  PaedagogikEssenRoute: typeof PaedagogikEssenRoute
+  PaedagogikPflegeRoute: typeof PaedagogikPflegeRoute
+}
+
+const PaedagogikRouteChildren: PaedagogikRouteChildren = {
+  PaedagogikAngeboteRoute: PaedagogikAngeboteRoute,
+  PaedagogikEssenRoute: PaedagogikEssenRoute,
+  PaedagogikPflegeRoute: PaedagogikPflegeRoute,
+}
+
+const PaedagogikRouteWithChildren = PaedagogikRoute._addFileChildren(
+  PaedagogikRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   KontaktRoute: KontaktRoute,
-  PaedagogikRoute: PaedagogikRoute,
+  PaedagogikRoute: PaedagogikRouteWithChildren,
   PreiseRoute: PreiseRoute,
   RaeumeRoute: RaeumeRoute,
   TeamRoute: TeamRoute,

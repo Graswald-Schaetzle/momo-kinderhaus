@@ -84,7 +84,7 @@ function Kontakt() {
                 placeholder="ihre@email.de"
               />
             </div>
-            <div className="flex flex-col gap-1 sm:gap-2">
+            <div className="flex w-full flex-col gap-1 sm:gap-2">
               <label htmlFor="subject" className="text-xs font-bold sm:text-base">
                 Betreff
               </label>

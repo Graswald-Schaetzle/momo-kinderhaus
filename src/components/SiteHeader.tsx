@@ -59,26 +59,51 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <nav
-          aria-label="Hauptnavigation"
-          aria-hidden={!open}
-          className="flex h-full flex-col items-center justify-center gap-8"
-        >
-          {navItems.map((item, i) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              tabIndex={open ? 0 : -1}
-              onClick={() => setOpen(false)}
-              style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}
-              className={`font-display text-xl font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 sm:text-2xl md:text-3xl ${
-                open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+        <div className="flex h-full flex-col items-center">
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            tabIndex={open ? 0 : -1}
+            className="flex flex-col items-center pt-16 sm:pt-20"
+          >
+            <img
+              src={momoLogo.url}
+              alt="MOMO Kleinkindergarten"
+              className={`h-12 w-auto transition-opacity duration-300 sm:h-16 md:h-20 ${
+                open ? "opacity-100" : "opacity-0"
+              }`}
+              width={860}
+              height={238}
+            />
+            <span
+              className={`mt-1 font-display text-xs font-normal tracking-[0.06em] text-menu-overlay-foreground transition-opacity duration-300 sm:mt-2 sm:text-sm md:text-base ${
+                open ? "opacity-100" : "opacity-0"
               }`}
             >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+              KLEINKINDERGARTEN
+            </span>
+          </Link>
+          <nav
+            aria-label="Hauptnavigation"
+            aria-hidden={!open}
+            className="flex flex-1 flex-col items-center justify-center gap-8"
+          >
+            {navItems.map((item, i) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                tabIndex={open ? 0 : -1}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}
+                className={`font-display text-xl font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 sm:text-2xl md:text-3xl ${
+                  open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
 
 

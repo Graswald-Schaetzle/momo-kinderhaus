@@ -8,7 +8,7 @@ const navItems = [
   { to: "/kontakt", label: "KONTAKT" },
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -95,9 +95,11 @@ export function SiteHeader() {
         </span>
       </Link>
 
-      <p className="mt-2 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
-        {"\n"}
-      </p>
+      {showSlogan && (
+        <p className="mt-2 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
+          9 Kinder, 3 Pädagoginnen, unendliche Geborgenheit.
+        </p>
+      )}
     </header>
 
   );

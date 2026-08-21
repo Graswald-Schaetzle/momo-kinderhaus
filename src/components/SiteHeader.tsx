@@ -66,7 +66,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
             to="/"
             onClick={() => setOpen(false)}
             tabIndex={open ? 0 : -1}
-            className="no-underline flex flex-col items-center pt-16 sm:pt-20"
+            className="no-underline flex flex-col items-center pt-10 sm:pt-12"
           >
             <img
               src={momoLogo.url}

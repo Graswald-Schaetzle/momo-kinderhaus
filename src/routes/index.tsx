@@ -128,13 +128,13 @@ function Index() {
         <button
           type="button"
           onClick={toggleSnore}
-          aria-pressed={snoring}
-          aria-label={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
+          aria-pressed={!muted}
+          aria-label={muted ? "Schnarchen einschalten" : "Schnarchen ausschalten"}
           className="relative z-10 mt-4 inline-flex items-center transition-opacity hover:opacity-80"
         >
           <img
-            src={snoring ? soundOnIcon : soundOffIcon}
-            alt={snoring ? "Schnarchen ausschalten" : "Schnarchen einschalten"}
+            src={muted ? soundOffIcon : soundOnIcon}
+            alt={muted ? "Schnarchen einschalten" : "Schnarchen ausschalten"}
             loading="lazy"
             width={32}
             height={32}

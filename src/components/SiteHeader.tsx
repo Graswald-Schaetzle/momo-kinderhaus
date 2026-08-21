@@ -82,7 +82,7 @@ export function SiteHeader() {
       </div>
 
 
-      <div className="flex flex-col items-center">
+      <Link to="/" className="flex flex-col items-center">
         <img
           src={momoLogo.url}
           alt="MOMO Kinderhaus"
@@ -93,7 +93,7 @@ export function SiteHeader() {
         <span className="mt-2 font-display text-base font-normal tracking-[0.06em] sm:mt-4 sm:text-xl md:text-2xl">
           KLEINKINDERGARTEN
         </span>
-      </div>
+      </Link>
 
       <p className="mt-6 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
         9 Kinder, 3 Pädagoginnen, unendliche Geborgenheit.

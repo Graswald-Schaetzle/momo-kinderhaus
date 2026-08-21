@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
@@ -68,6 +68,15 @@ function UeberUns() {
       <SiteHeader />
 
       <div className="mx-auto max-w-6xl px-6 pt-12 sm:px-10 md:px-14">
+        <div className="mb-8 flex justify-center sm:mb-12">
+          <Link
+            to="/team"
+            className="font-display text-sm tracking-[0.25em] uppercase underline underline-offset-8 transition-opacity hover:opacity-60 sm:text-base"
+          >
+            Team
+          </Link>
+        </div>
+
         {sections.map((section, i) => {
           const imageFirst = i % 2 === 1;
           return (

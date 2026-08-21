@@ -54,9 +54,9 @@ function Kontakt() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="mx-auto mt-4 flex w-full max-w-xl flex-col gap-3 text-left sm:mt-10 sm:gap-5"
+            className="mx-auto mt-4 flex w-full max-w-xl flex-col items-center gap-3 text-center sm:mt-10 sm:gap-5"
           >
-            <div className="flex flex-col gap-1 sm:gap-2">
+            <div className="flex w-full flex-col gap-1 sm:gap-2">
               <label htmlFor="name" className="text-xs font-bold sm:text-base">
                 Name
               </label>
@@ -70,7 +70,7 @@ function Kontakt() {
                 placeholder="Ihr Name"
               />
             </div>
-            <div className="flex flex-col gap-1 sm:gap-2">
+            <div className="flex w-full flex-col gap-1 sm:gap-2">
               <label htmlFor="email" className="text-xs font-bold sm:text-base">
                 E-Mail
               </label>
@@ -84,7 +84,7 @@ function Kontakt() {
                 placeholder="ihre@email.de"
               />
             </div>
-            <div className="flex flex-col gap-1 sm:gap-2">
+            <div className="flex w-full flex-col gap-1 sm:gap-2">
               <label htmlFor="subject" className="text-xs font-bold sm:text-base">
                 Betreff
               </label>
@@ -98,7 +98,7 @@ function Kontakt() {
                 placeholder="Betreff Ihrer Nachricht"
               />
             </div>
-            <div className="flex flex-col gap-1 sm:gap-2">
+            <div className="flex w-full flex-col gap-1 sm:gap-2">
               <label htmlFor="message" className="text-xs font-bold sm:text-base">
                 Nachricht
               </label>

@@ -31,8 +31,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const SNORE_MUTED_KEY = "momo-snore-muted";
-
 function Index() {
   const audioRef = useRef<HTMLAudioElement>(null);
   // Persisted muted state: once the user turns the snoring off, it stays off

@@ -95,7 +95,7 @@ export function SiteHeader() {
         </span>
       </Link>
 
-      <p className="mt-6 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
+      <p className="mt-2 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
         {"\n"}
       </p>
     </header>

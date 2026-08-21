@@ -99,23 +99,23 @@ function Kontakt() {
                 placeholder="Betreff Ihrer Nachricht"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="text-sm font-bold sm:text-base">
+            <div className="flex flex-col gap-1 sm:gap-2">
+              <label htmlFor="message" className="text-xs font-bold sm:text-base">
                 Nachricht
               </label>
               <textarea
                 id="message"
                 required
-                rows={5}
+                rows={3}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="resize-none rounded-md border border-black/20 bg-white/50 px-4 py-3 text-sm focus:border-black/40 focus:outline-none sm:text-base"
+                className="resize-none rounded-md border border-black/20 bg-white/50 px-3 py-2 text-sm focus:border-black/40 focus:outline-none sm:px-4 sm:py-3 sm:text-base"
                 placeholder="Ihre Nachricht an uns"
               />
             </div>
             <button
               type="submit"
-              className="mt-2 self-center rounded-md bg-black/80 px-10 py-3 font-display text-sm font-bold tracking-[0.08em] text-white transition-colors hover:bg-black sm:text-base"
+              className="mt-1 self-center rounded-md bg-black/80 px-8 py-2 font-display text-sm font-bold tracking-[0.08em] text-white transition-colors hover:bg-black sm:mt-2 sm:px-10 sm:py-3 sm:text-base"
             >
               Absenden
             </button>

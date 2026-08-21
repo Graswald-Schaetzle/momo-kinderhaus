@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/paedagogik")({
@@ -21,19 +21,14 @@ export const Route = createFileRoute("/paedagogik")({
     ],
     links: [{ rel: "canonical", href: "/paedagogik" }],
   }),
-  component: Paedagogik,
+  component: PaedagogikLayout,
 });
 
-function Paedagogik() {
+function PaedagogikLayout() {
   return (
-    <main className="min-h-screen pb-32 text-center">
+    <main className="min-h-screen pb-32">
       <SiteHeader />
-      <section className="px-6 pt-20 sm:px-10 md:px-14">
-        <h2 className="text-base font-bold sm:text-lg">Pädagogik</h2>
-        <p className="mx-auto mt-6 max-w-xl text-base font-bold leading-relaxed sm:text-lg">
-          Inhalt folgt.
-        </p>
-      </section>
+      <Outlet />
     </main>
   );
 }

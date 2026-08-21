@@ -174,3 +174,53 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
 
   );
 }
+
+function NavItemWithChildren({
+  item,
+  index,
+  open,
+  onNavigate,
+}: {
+  item: { label: string; children: { to: string; label: string }[] };
+  index: number;
+  open: boolean;
+  onNavigate: () => void;
+}) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className="flex flex-col items-center gap-3 sm:gap-4">
+      <button
+        type="button"
+        tabIndex={open ? 0 : -1}
+        onClick={() => setExpanded((v) => !v)}
+        style={{ transitionDelay: open ? `${120 + index * 80}ms` : "0ms" }}
+        className={`font-display font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 text-xl sm:text-2xl md:text-3xl ${
+          open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+        }`}
+      >
+        {item.label}
+        <span className="ml-2 inline-block text-sm align-middle transition-transform duration-300">
+          {expanded ? "−" : "+"}
+        </span>
+      </button>
+      <div
+        className={`flex flex-col items-center gap-2 overflow-hidden transition-all duration-300 sm:gap-3 ${
+          expanded ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        {item.children.map((child) => (
+          <Link
+            key={child.to}
+            to={child.to}
+            tabIndex={open && expanded ? 0 : -1}
+            onClick={onNavigate}
+            className="no-underline font-display text-base font-normal tracking-[0.08em] text-menu-overlay-foreground opacity-80 transition-opacity hover:opacity-60 sm:text-lg md:text-xl"
+          >
+            {child.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}

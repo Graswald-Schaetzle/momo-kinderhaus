@@ -2,14 +2,23 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import momoLogo from "@/assets/momo-logo-thin.svg.asset.json";
 
-const navItems = [
-  { to: "/ueber-uns", label: "ÜBER UNS" },
-  { to: "/team", label: "TEAM", sub: true },
+type NavItem =
+  | { to: string; label: string }
+  | { label: string; children: { to: string; label: string }[] };
+
+const navItems: NavItem[] = [
+  {
+    label: "ÜBER UNS",
+    children: [
+      { to: "/ueber-uns", label: "Unsere Werte" },
+      { to: "/team", label: "Team" },
+    ],
+  },
   { to: "/paedagogik", label: "PÄDAGOGIK" },
   { to: "/raeume", label: "RÄUME" },
   { to: "/preise", label: "PREISE" },
   { to: "/kontakt", label: "KONTAKT" },
-] as const;
+];
 
 export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
   const [open, setOpen] = useState(false);

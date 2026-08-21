@@ -40,7 +40,7 @@ const sections = [
     title: "Ruhe",
     image: ruheImg,
     alt: "Aquarell-Zeichnung: schlafendes Kind unter einem Mond",
-    text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind genau das, was es in den ersten Jahren am meisten braucht: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
+    text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },
   {
     title: "Ganzheitlichkeit",

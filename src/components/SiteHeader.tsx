@@ -66,7 +66,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
             to="/"
             onClick={() => setOpen(false)}
             tabIndex={open ? 0 : -1}
-            className="no-underline flex flex-col items-center pt-16 sm:pt-20"
+            className="no-underline flex flex-col items-center pt-10 sm:pt-12"
           >
             <img
               src={momoLogo.url}
@@ -88,7 +88,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
           <nav
             aria-label="Hauptnavigation"
             aria-hidden={!open}
-            className="flex flex-1 flex-col items-center justify-center gap-8"
+            className="flex flex-1 flex-col items-center justify-center gap-6 pb-32 sm:gap-8 sm:pb-40"
           >
             {navItems.map((item, i) => (
               <Link

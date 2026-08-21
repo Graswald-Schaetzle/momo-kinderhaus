@@ -98,9 +98,11 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
                 tabIndex={open ? 0 : -1}
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}
-                className={`no-underline font-display text-xl font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 sm:text-2xl md:text-3xl ${
-                  open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
-                }`}
+                className={`no-underline font-display font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 ${
+                  "sub" in item && item.sub
+                    ? "text-base sm:text-lg md:text-xl opacity-80"
+                    : "text-xl sm:text-2xl md:text-3xl"
+                } ${open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
               >
                 {item.label}
               </Link>

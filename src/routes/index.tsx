@@ -31,8 +31,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const SNORE_MUTED_KEY = "momo-snore-muted";
-
 function Index() {
   const audioRef = useRef<HTMLAudioElement>(null);
   // Persisted muted state: once the user turns the snoring off, it stays off
@@ -40,53 +38,28 @@ function Index() {
   const [muted, setMuted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(SNORE_MUTED_KEY);
-    const startMuted = stored === "true";
-    setMuted(startMuted);
-
     const audio = audioRef.current;
     if (!audio) return;
     audio.volume = 0.6;
 
-    // If the user previously muted, do not auto-play.
-    if (startMuted) {
-      audio.pause();
-      return;
-    }
-
-    const start = () => {
-      void audio
-        .play()
-        .then(() => setMuted(false))
-        .catch(() => {});
-    };
-
-    start();
-
-    const onInteract = () => start();
-    window.addEventListener("pointerdown", onInteract);
-    window.addEventListener("keydown", onInteract);
-    window.addEventListener("touchstart", onInteract);
-    return () => {
-      window.removeEventListener("pointerdown", onInteract);
-      window.removeEventListener("keydown", onInteract);
-      window.removeEventListener("touchstart", onInteract);
-    };
+    // Try to autoplay; if the browser blocks it, the user can start it
+    // with a single click on the sound toggle.
+    void audio.play().then(() => setMuted(false)).catch(() => {
+      setMuted(true);
+    });
   }, []);
 
   const toggleSnore = () => {
     const audio = audioRef.current;
     if (!audio) return;
     if (!muted) {
-      // Turn OFF and persist so it stays off across navigations.
+      // Turn OFF.
       audio.pause();
       setMuted(true);
-      localStorage.setItem(SNORE_MUTED_KEY, "true");
     } else {
-      // Turn back ON — user explicitly re-enabled.
+      // Turn ON with a single click.
       audio.volume = 0.6;
       void audio.play().then(() => setMuted(false)).catch(() => {});
-      localStorage.setItem(SNORE_MUTED_KEY, "false");
     }
   };
 

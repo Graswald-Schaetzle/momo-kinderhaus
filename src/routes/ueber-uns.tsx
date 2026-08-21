@@ -73,29 +73,33 @@ function UeberUns() {
           return (
             <section
               key={section.title}
-              className="grid grid-cols-1 items-center gap-6 py-10 sm:gap-12 sm:py-16 md:grid-cols-2"
+              className={`grid grid-cols-1 items-center gap-6 py-10 sm:gap-12 sm:py-16 md:grid-cols-2 ${
+                imageFirst ? "md:pl-0" : "md:pr-0"
+              }`}
             >
               <div
                 className={`${imageFirst ? "order-2 md:order-2" : "order-1 md:order-1"} ${
-                  imageFirst ? "md:pl-6" : "md:pr-6"
+                  imageFirst ? "text-right md:text-left md:pl-6" : "text-left md:pr-6"
                 }`}
               >
                 <h2 className="font-display text-3xl font-normal leading-tight tracking-[0.04em] sm:text-4xl md:text-5xl">
                   {section.title}
                 </h2>
-                <p className="mt-4 max-w-prose text-base leading-relaxed sm:mt-6 sm:text-lg">
+                <p className={`mt-4 max-w-prose text-base leading-relaxed sm:mt-6 sm:text-lg ${
+                  imageFirst ? "ml-auto md:ml-0" : ""
+                }`}>
                   {section.text}
                 </p>
               </div>
 
-              <div className={imageFirst ? "order-1 md:order-1" : "order-2 md:order-2"}>
+              <div className={`${imageFirst ? "order-1 md:order-1 flex justify-end md:block" : "order-2 md:order-2 flex justify-start md:block"}`}>
                 <img
                   src={section.image}
                   alt={section.alt}
                   loading="lazy"
                   width={900}
                   height={900}
-                  className="mx-auto w-2/3 max-w-xs object-contain mix-blend-multiply sm:w-full sm:max-w-sm"
+                  className="w-2/3 max-w-xs object-contain mix-blend-multiply sm:w-full sm:max-w-sm md:mx-auto"
                 />
               </div>
             </section>

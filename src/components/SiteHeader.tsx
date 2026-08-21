@@ -107,7 +107,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
       </div>
 
 
-      <Link to="/" className="flex flex-col items-center">
+      <Link to="/" className="no-underline flex flex-col items-center">
         <img
           src={momoLogo.url}
           alt="MOMO Kinderhaus"

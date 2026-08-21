@@ -86,14 +86,10 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
             tabIndex={open ? 0 : -1}
             className="no-underline flex flex-col items-center pt-10 sm:pt-12"
           >
-            <img
-              src={momoLogo.url}
-              alt="MOMO Kleinkindergarten"
-              className={`h-12 w-auto transition-opacity duration-300 sm:h-16 md:h-20 ${
+            <MomoLogo
+              className={`h-12 w-auto text-black transition-opacity duration-300 sm:h-16 md:h-20 ${
                 open ? "opacity-100" : "opacity-0"
               }`}
-              width={860}
-              height={238}
             />
             <span
               className={`mt-1 font-display text-xs font-normal tracking-[0.06em] text-black transition-opacity duration-300 sm:mt-2 sm:text-sm md:text-base ${
@@ -161,12 +157,8 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
 
 
       <Link to="/" className="no-underline flex flex-col items-center">
-        <img
-          src={momoLogo.url}
-          alt="MOMO Kinderhaus"
+        <MomoLogo
           className="h-10 w-auto sm:h-24 md:h-28"
-          width={860}
-          height={238}
         />
         <span className="mt-1 font-display text-sm font-normal tracking-[0.06em] sm:mt-4 sm:text-xl md:text-2xl">
           KLEINKINDERGARTEN

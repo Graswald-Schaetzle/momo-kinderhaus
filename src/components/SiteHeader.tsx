@@ -86,11 +86,11 @@ export function SiteHeader() {
         <img
           src={momoLogo.url}
           alt="MOMO Kinderhaus"
-          className="h-14 w-auto sm:h-24 md:h-28"
+          className="h-10 w-auto sm:h-24 md:h-28"
           width={860}
           height={238}
         />
-        <span className="mt-2 font-display text-base font-normal tracking-[0.06em] sm:mt-4 sm:text-xl md:text-2xl">
+        <span className="mt-1 font-display text-sm font-normal tracking-[0.06em] sm:mt-4 sm:text-xl md:text-2xl">
           KLEINKINDERGARTEN
         </span>
       </Link>

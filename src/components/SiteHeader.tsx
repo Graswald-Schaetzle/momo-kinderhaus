@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import momoLogo from "@/assets/momo-logo-thin.svg.asset.json";
+import { MomoLogo } from "@/components/MomoLogo";
 
 type NavItem =
   | { to: string; label: string }

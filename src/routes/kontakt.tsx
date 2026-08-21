@@ -98,7 +98,7 @@ function Kontakt() {
                 placeholder="Betreff Ihrer Nachricht"
               />
             </div>
-            <div className="flex w-full flex-col gap-1 sm:gap-2">
+            <div className="flex flex-col gap-1 sm:gap-2">
               <label htmlFor="message" className="text-xs font-bold sm:text-base">
                 Nachricht
               </label>

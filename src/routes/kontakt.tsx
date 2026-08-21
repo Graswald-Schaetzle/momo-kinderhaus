@@ -37,7 +37,7 @@ function Kontakt() {
   return (
     <main className="flex flex-1 flex-col pb-2 text-center">
       <SiteHeader />
-      <section className="flex flex-1 flex-col items-center px-4 pt-2 sm:px-10 sm:pt-10 md:px-14">
+      <section className="flex flex-1 flex-col items-center justify-center px-4 pb-10 sm:px-10 md:px-14">
         <h2 className="font-display text-xl font-normal tracking-[0.08em] sm:text-3xl">
           Kontakt
         </h2>

@@ -214,7 +214,7 @@ function NavItemWithChildren({
       </button>
       <div
         className={`flex flex-col items-center gap-2 overflow-hidden transition-all duration-300 sm:gap-3 ${
-          expanded ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+          expanded ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         {item.children.map((child) => (

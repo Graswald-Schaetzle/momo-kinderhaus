@@ -65,7 +65,7 @@ function Index() {
 
   return (
     <main className="flex flex-1 flex-col items-center pb-2 text-center">
-      <SiteHeader />
+      <SiteHeader showSlogan />
 
       <div className="relative mx-auto flex flex-1 w-full max-w-5xl flex-col items-center justify-center py-2">
         <p className="font-display text-xl font-normal leading-tight tracking-[0.08em] sm:text-3xl md:text-4xl">

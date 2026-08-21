@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as PaedagogikRouteImport } from './routes/paedagogik'
 import { Route as PreiseRouteImport } from './routes/preise'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const KontaktRoute = KontaktRouteImport.update({
   id: '/kontakt',
   path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaedagogikRoute = PaedagogikRouteImport.update({
+  id: '/paedagogik',
+  path: '/paedagogik',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PreiseRoute = PreiseRouteImport.update({
@@ -38,12 +44,14 @@ const UeberUnsRoute = UeberUnsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
+  '/paedagogik': typeof PaedagogikRoute
   '/preise': typeof PreiseRoute
   '/ueber-uns': typeof UeberUnsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
+  '/paedagogik': typeof PaedagogikRoute
   '/preise': typeof PreiseRoute
   '/ueber-uns': typeof UeberUnsRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/kontakt': typeof KontaktRoute
+  '/paedagogik': typeof PaedagogikRoute
   '/preise': typeof PreiseRoute
   '/ueber-uns': typeof UeberUnsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kontakt' | '/preise' | '/ueber-uns'
+  fullPaths: '/' | '/kontakt' | '/paedagogik' | '/preise' | '/ueber-uns'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kontakt' | '/preise' | '/ueber-uns'
-  id: '__root__' | '/' | '/kontakt' | '/preise' | '/ueber-uns'
+  to: '/' | '/kontakt' | '/paedagogik' | '/preise' | '/ueber-uns'
+  id: '__root__' | '/' | '/kontakt' | '/paedagogik' | '/preise' | '/ueber-uns'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   KontaktRoute: typeof KontaktRoute
+  PaedagogikRoute: typeof PaedagogikRoute
   PreiseRoute: typeof PreiseRoute
   UeberUnsRoute: typeof UeberUnsRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/kontakt'
       fullPath: '/kontakt'
       preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paedagogik': {
+      id: '/paedagogik'
+      path: '/paedagogik'
+      fullPath: '/paedagogik'
+      preLoaderRoute: typeof PaedagogikRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/preise': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   KontaktRoute: KontaktRoute,
+  PaedagogikRoute: PaedagogikRoute,
   PreiseRoute: PreiseRoute,
   UeberUnsRoute: UeberUnsRoute,
 }

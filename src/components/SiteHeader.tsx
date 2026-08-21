@@ -96,7 +96,7 @@ export function SiteHeader() {
       </Link>
 
       <p className="mt-6 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
-        9 Kinder, 3 Pädagoginnen, unendliche Geborgenheit.
+        {"\n"}
       </p>
     </header>
 

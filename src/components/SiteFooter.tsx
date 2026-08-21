@@ -14,13 +14,14 @@ export function SiteFooter() {
         >
           Mozartstraße 4, 71686 Remseck am Neckar
         </a>
+        <br />
+        <Link
+          to="/kontakt"
+          className="mt-2 inline-block font-display text-sm font-bold tracking-[0.08em] underline underline-offset-4 sm:text-lg"
+        >
+          Kontaktieren Sie uns
+        </Link>
       </p>
-      <Link
-        to="/kontakt"
-        className="mt-2 inline-block font-display text-sm font-bold tracking-[0.08em] underline underline-offset-4 sm:text-lg"
-      >
-        KONTAKT
-      </Link>
     </footer>
   );
 }

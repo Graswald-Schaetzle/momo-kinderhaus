@@ -14,7 +14,15 @@ const navItems: NavItem[] = [
       { to: "/team", label: "Team" },
     ],
   },
-  { to: "/paedagogik", label: "PÄDAGOGIK" },
+  {
+    label: "PÄDAGOGIK",
+    children: [
+      { to: "/paedagogik", label: "Pädagogik" },
+      { to: "/paedagogik/pflege", label: "Pflege" },
+      { to: "/paedagogik/essen", label: "Essen" },
+      { to: "/paedagogik/angebote", label: "Angebote" },
+    ],
+  },
   { to: "/raeume", label: "RÄUME" },
   { to: "/preise", label: "PREISE" },
   { to: "/kontakt", label: "KONTAKT" },

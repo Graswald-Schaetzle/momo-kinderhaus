@@ -95,9 +95,11 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
         </span>
       </Link>
 
-      <p className="mt-2 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
-        {"\n"}
-      </p>
+      {showSlogan && (
+        <p className="mt-2 font-display text-base font-bold leading-relaxed sm:mt-20 sm:text-xl md:text-2xl">
+          9 Kinder, 3 Pädagoginnen, unendliche Geborgenheit.
+        </p>
+      )}
     </header>
 
   );

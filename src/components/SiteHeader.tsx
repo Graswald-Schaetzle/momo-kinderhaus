@@ -100,22 +100,30 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
             aria-hidden={!open}
             className="flex flex-1 flex-col items-center justify-center gap-6 sm:gap-8"
           >
-            {navItems.map((item, i) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                tabIndex={open ? 0 : -1}
-                onClick={() => setOpen(false)}
-                style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}
-                className={`no-underline font-display font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 ${
-                  "sub" in item && item.sub
-                    ? "text-base sm:text-lg md:text-xl opacity-80"
-                    : "text-xl sm:text-2xl md:text-3xl"
-                } ${open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item, i) =>
+              "children" in item ? (
+                <NavItemWithChildren
+                  key={item.label}
+                  item={item}
+                  index={i}
+                  open={open}
+                  onNavigate={() => setOpen(false)}
+                />
+              ) : (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  tabIndex={open ? 0 : -1}
+                  onClick={() => setOpen(false)}
+                  style={{ transitionDelay: open ? `${120 + i * 80}ms` : "0ms" }}
+                  className={`no-underline font-display font-medium tracking-[0.12em] text-menu-overlay-foreground transition-all duration-500 hover:opacity-70 text-xl sm:text-2xl md:text-3xl ${
+                    open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
           <footer className="pb-8 pt-4 text-center sm:pb-12">
             <p className="font-display text-sm font-bold leading-relaxed text-menu-overlay-foreground sm:text-lg">

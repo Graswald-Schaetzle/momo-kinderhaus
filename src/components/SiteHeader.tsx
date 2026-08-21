@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import momoLogo from "@/assets/momo-logo-thin.svg.asset.json";
+import { MomoLogo } from "@/components/MomoLogo";
 
 type NavItem =
   | { to: string; label: string }
@@ -14,7 +14,15 @@ const navItems: NavItem[] = [
       { to: "/team", label: "Team" },
     ],
   },
-  { to: "/paedagogik", label: "PÄDAGOGIK" },
+  {
+    label: "PÄDAGOGIK",
+    children: [
+      { to: "/paedagogik", label: "Pädagogik" },
+      { to: "/paedagogik/pflege", label: "Pflege" },
+      { to: "/paedagogik/essen", label: "Essen" },
+      { to: "/paedagogik/angebote", label: "Angebote" },
+    ],
+  },
   { to: "/raeume", label: "RÄUME" },
   { to: "/preise", label: "PREISE" },
   { to: "/kontakt", label: "KONTAKT" },
@@ -78,14 +86,10 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
             tabIndex={open ? 0 : -1}
             className="no-underline flex flex-col items-center pt-10 sm:pt-12"
           >
-            <img
-              src={momoLogo.url}
-              alt="MOMO Kleinkindergarten"
-              className={`h-12 w-auto transition-opacity duration-300 sm:h-16 md:h-20 ${
+            <MomoLogo
+              className={`h-12 w-auto text-black transition-opacity duration-300 sm:h-16 md:h-20 ${
                 open ? "opacity-100" : "opacity-0"
               }`}
-              width={860}
-              height={238}
             />
             <span
               className={`mt-1 font-display text-xs font-normal tracking-[0.06em] text-black transition-opacity duration-300 sm:mt-2 sm:text-sm md:text-base ${
@@ -153,12 +157,8 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
 
 
       <Link to="/" className="no-underline flex flex-col items-center">
-        <img
-          src={momoLogo.url}
-          alt="MOMO Kinderhaus"
+        <MomoLogo
           className="h-10 w-auto sm:h-24 md:h-28"
-          width={860}
-          height={238}
         />
         <span className="mt-1 font-display text-sm font-normal tracking-[0.06em] sm:mt-4 sm:text-xl md:text-2xl">
           KLEINKINDERGARTEN
@@ -206,7 +206,7 @@ function NavItemWithChildren({
       </button>
       <div
         className={`flex flex-col items-center gap-2 overflow-hidden transition-all duration-300 sm:gap-3 ${
-          expanded ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+          expanded ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         {item.children.map((child) => (

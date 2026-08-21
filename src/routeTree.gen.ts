@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as PaedagogikRouteImport } from './routes/paedagogik'
 import { Route as PreiseRouteImport } from './routes/preise'
+import { Route as RaeumeRouteImport } from './routes/raeume'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const PreiseRoute = PreiseRouteImport.update({
   path: '/preise',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RaeumeRoute = RaeumeRouteImport.update({
+  id: '/raeume',
+  path: '/raeume',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UeberUnsRoute = UeberUnsRouteImport.update({
   id: '/ueber-uns',
   path: '/ueber-uns',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/kontakt': typeof KontaktRoute
   '/paedagogik': typeof PaedagogikRoute
   '/preise': typeof PreiseRoute
+  '/raeume': typeof RaeumeRoute
   '/ueber-uns': typeof UeberUnsRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/kontakt': typeof KontaktRoute
   '/paedagogik': typeof PaedagogikRoute
   '/preise': typeof PreiseRoute
+  '/raeume': typeof RaeumeRoute
   '/ueber-uns': typeof UeberUnsRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,23 @@ export interface FileRoutesById {
   '/kontakt': typeof KontaktRoute
   '/paedagogik': typeof PaedagogikRoute
   '/preise': typeof PreiseRoute
+  '/raeume': typeof RaeumeRoute
   '/ueber-uns': typeof UeberUnsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kontakt' | '/paedagogik' | '/preise' | '/ueber-uns'
+  fullPaths:
+    '/' | '/kontakt' | '/paedagogik' | '/preise' | '/raeume' | '/ueber-uns'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kontakt' | '/paedagogik' | '/preise' | '/ueber-uns'
-  id: '__root__' | '/' | '/kontakt' | '/paedagogik' | '/preise' | '/ueber-uns'
+  to: '/' | '/kontakt' | '/paedagogik' | '/preise' | '/raeume' | '/ueber-uns'
+  id:
+    | '__root__'
+    | '/'
+    | '/kontakt'
+    | '/paedagogik'
+    | '/preise'
+    | '/raeume'
+    | '/ueber-uns'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +93,7 @@ export interface RootRouteChildren {
   KontaktRoute: typeof KontaktRoute
   PaedagogikRoute: typeof PaedagogikRoute
   PreiseRoute: typeof PreiseRoute
+  RaeumeRoute: typeof RaeumeRoute
   UeberUnsRoute: typeof UeberUnsRoute
 }
 
@@ -109,6 +127,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PreiseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/raeume': {
+      id: '/raeume'
+      path: '/raeume'
+      fullPath: '/raeume'
+      preLoaderRoute: typeof RaeumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ueber-uns': {
       id: '/ueber-uns'
       path: '/ueber-uns'
@@ -124,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   KontaktRoute: KontaktRoute,
   PaedagogikRoute: PaedagogikRoute,
   PreiseRoute: PreiseRoute,
+  RaeumeRoute: RaeumeRoute,
   UeberUnsRoute: UeberUnsRoute,
 }
 export const routeTree = rootRouteImport

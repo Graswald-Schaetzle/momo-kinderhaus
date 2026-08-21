@@ -88,7 +88,7 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
           <nav
             aria-label="Hauptnavigation"
             aria-hidden={!open}
-            className="flex flex-1 flex-col items-center justify-center gap-6 pb-16 sm:gap-8"
+            className="flex flex-1 flex-col items-center justify-center gap-6 pb-32 sm:gap-8 sm:pb-40"
           >
             {navItems.map((item, i) => (
               <Link

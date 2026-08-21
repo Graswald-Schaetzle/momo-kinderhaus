@@ -78,14 +78,12 @@ function UeberUns() {
               <div
                 className={`${
                   imageFirst ? "order-2" : "order-1"
-                } ${imageFirst ? "pl-2 sm:pl-6" : "pr-2 sm:pr-6"} ${
-                  imageFirst ? "text-left sm:text-left" : "text-right sm:text-right"
-                }`}
+                } ${imageFirst ? "pl-2 sm:pl-6" : "pr-2 sm:pr-6"} text-left`}
               >
                 <h2 className="font-display text-xl font-normal leading-tight tracking-[0.04em] sm:text-3xl md:text-4xl">
                   {section.title}
                 </h2>
-                <p className="mt-2 text-[11px] leading-snug sm:mt-4 sm:text-base sm:leading-relaxed md:text-lg">
+                <p className="mt-2 text-justify text-[11px] leading-snug sm:mt-4 sm:text-base sm:leading-relaxed md:text-lg">
                   {section.text}
                 </p>
               </div>

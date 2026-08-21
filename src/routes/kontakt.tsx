@@ -57,8 +57,8 @@ function Kontakt() {
             onSubmit={handleSubmit}
             className="mx-auto mt-4 flex w-full max-w-xl flex-col gap-3 text-left sm:mt-10 sm:gap-5"
           >
-            <div className="flex flex-col gap-2">
-              <label htmlFor="name" className="text-sm font-bold sm:text-base">
+            <div className="flex flex-col gap-1 sm:gap-2">
+              <label htmlFor="name" className="text-xs font-bold sm:text-base">
                 Name
               </label>
               <input
@@ -67,12 +67,12 @@ function Kontakt() {
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="rounded-md border border-black/20 bg-white/50 px-4 py-3 text-sm focus:border-black/40 focus:outline-none sm:text-base"
+                className="rounded-md border border-black/20 bg-white/50 px-3 py-2 text-sm focus:border-black/40 focus:outline-none sm:px-4 sm:py-3 sm:text-base"
                 placeholder="Ihr Name"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="email" className="text-sm font-bold sm:text-base">
+            <div className="flex flex-col gap-1 sm:gap-2">
+              <label htmlFor="email" className="text-xs font-bold sm:text-base">
                 E-Mail
               </label>
               <input
@@ -81,12 +81,12 @@ function Kontakt() {
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="rounded-md border border-black/20 bg-white/50 px-4 py-3 text-sm focus:border-black/40 focus:outline-none sm:text-base"
+                className="rounded-md border border-black/20 bg-white/50 px-3 py-2 text-sm focus:border-black/40 focus:outline-none sm:px-4 sm:py-3 sm:text-base"
                 placeholder="ihre@email.de"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="subject" className="text-sm font-bold sm:text-base">
+            <div className="flex flex-col gap-1 sm:gap-2">
+              <label htmlFor="subject" className="text-xs font-bold sm:text-base">
                 Betreff
               </label>
               <input
@@ -95,7 +95,7 @@ function Kontakt() {
                 required
                 value={form.subject}
                 onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                className="rounded-md border border-black/20 bg-white/50 px-4 py-3 text-sm focus:border-black/40 focus:outline-none sm:text-base"
+                className="rounded-md border border-black/20 bg-white/50 px-3 py-2 text-sm focus:border-black/40 focus:outline-none sm:px-4 sm:py-3 sm:text-base"
                 placeholder="Betreff Ihrer Nachricht"
               />
             </div>

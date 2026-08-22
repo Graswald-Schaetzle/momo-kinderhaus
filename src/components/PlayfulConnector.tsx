@@ -2,62 +2,128 @@ import sprigA from "@/assets/vine-sprig-a.png.asset.json";
 import sprigB from "@/assets/vine-sprig-b.png.asset.json";
 
 /**
- * The branches are cut directly out of the "Natur" painting, so they are the
- * exact same brush drawing. They grow out of the bush in the "Natur" section
- * upwards to the hand of the woman in the "Nähe" drawing.
+ * The branch is built out of leaf clusters cut directly from the "Natur"
+ * painting, chained densely along a stem so it has the same leaf density as
+ * the bush itself and looks like the bush simply keeps growing upwards.
  *
- * Geometry rules (viewBox 0 0 383 1000, matching the section grid):
- *  - text columns live at x 40-160 and x 224-345 → stems only use the left
- *    margin (x ≈ 32) and the centre gutter (x ≈ 191)
- *  - horizontal moves only happen in the gaps between sections
- *    (y ≈ 182-244, 374-436, 565-627, 763-825)
+ * Coordinates are percentages of the connector box (0-100 in both axes).
+ * Text columns sit at x 10-42 and x 58-90, so the stems only travel through
+ * the left margin (x ≈ 8) and the centre gutter (x ≈ 50).
  */
 
-const INK = "#1E3A1B";
-const MID = "#3F6B2E";
-const WASH = "#8FB06A";
+type P = [number, number];
 
-const STEM_A =
-  "M108 646 C 134 622, 176 616, 189 592 C 196 520, 187 430, 191 350 C 192 302, 186 268, 197 240 C 212 204, 246 168, 272 136";
+/** cubic bezier chain: [start, c1, c2, end, c1, c2, end, ...] */
+type Chain = P[];
 
-const STEM_B =
-  "M96 652 C 72 644, 44 634, 34 602 C 28 540, 37 460, 33 390 C 29 320, 31 262, 41 232 C 61 205, 130 200, 176 195 C 216 190, 251 164, 272 136";
+// grows out of the crown of the bush in the "Natur" section
+const STEM_A: Chain = [
+  [24, 68],
+  [34, 64],
+  [46, 60],
+  [50, 54],
+  [50, 46],
+  [50, 38],
+  [49, 30],
+  [49, 26],
+  [52, 22],
+  [58, 19],
+  [63, 17],
+  [67, 15.5],
+  [70, 13.8],
+];
 
-type SprigProps = {
-  /** position of the sprig centre, in % of the connector box */
-  left: number;
-  top: number;
-  /** rendered width in % of the connector box */
-  width: number;
-  rotate?: number;
-  flip?: boolean;
-  src?: string;
-  opacity?: number;
-};
+const STEM_B: Chain = [
+  [21, 69],
+  [12, 67],
+  [5, 63],
+  [4.5, 57],
+  [4, 48],
+  [5, 40],
+  [4.5, 32],
+  [4, 26],
+  [10, 21],
+  [22, 19.5],
+  [40, 19],
+  [58, 17],
+  [70, 13.8],
+];
 
-function Sprig({
-  left,
-  top,
-  width,
-  rotate = 0,
-  flip = false,
-  src = sprigA.url,
-  opacity = 1,
-}: SprigProps) {
+function bezier(p0: P, p1: P, p2: P, p3: P, t: number): P {
+  const u = 1 - t;
+  const a = u * u * u;
+  const b = 3 * u * u * t;
+  const c = 3 * u * t * t;
+  const d = t * t * t;
+  return [
+    a * p0[0] + b * p1[0] + c * p2[0] + d * p3[0],
+    a * p0[1] + b * p1[1] + c * p2[1] + d * p3[1],
+  ];
+}
+
+function toPathD(chain: Chain) {
+  const start = chain[0] as P;
+  let d = `M ${start[0]} ${start[1]}`;
+  for (let i = 1; i + 2 < chain.length; i += 3) {
+    const c1 = chain[i] as P;
+    const c2 = chain[i + 1] as P;
+    const end = chain[i + 2] as P;
+    d += ` C ${c1[0]} ${c1[1]}, ${c2[0]} ${c2[1]}, ${end[0]} ${end[1]}`;
+  }
+  return d;
+}
+
+/** dense sample points with tangent angle along the whole chain */
+function samples(chain: Chain, perSegment: number) {
+  const out: { x: number; y: number; angle: number }[] = [];
+  for (let i = 1; i + 2 < chain.length; i += 3) {
+    const p0 = chain[i - 1] as P;
+    const p1 = chain[i] as P;
+    const p2 = chain[i + 1] as P;
+    const p3 = chain[i + 2] as P;
+    for (let s = 0; s < perSegment; s++) {
+      const t = s / perSegment;
+      const pt = bezier(p0, p1, p2, p3, t);
+      const nx = bezier(p0, p1, p2, p3, Math.min(t + 0.01, 1));
+      const angle =
+        (Math.atan2(nx[1] - pt[1], nx[0] - pt[0]) * 180) / Math.PI;
+      out.push({ x: pt[0], y: pt[1], angle });
+    }
+  }
+  return out;
+}
+
+const LEAF_A = sprigA.url;
+const LEAF_B = sprigB.url;
+
+function Leaves({ chain, perSegment }: { chain: Chain; perSegment: number }) {
+  const pts = samples(chain, perSegment);
   return (
-    <img
-      src={src}
-      alt=""
-      aria-hidden="true"
-      className="absolute select-none"
-      style={{
-        left: `${left}%`,
-        top: `${top}%`,
-        width: `${width}%`,
-        opacity,
-        transform: `translate(-50%, -50%) rotate(${rotate}deg) scaleX(${flip ? -1 : 1})`,
-      }}
-    />
+    <>
+      {pts.map((p, i) => {
+        // alternate sides and artwork so the foliage reads as dense as the bush
+        const side = i % 2 === 0 ? 1 : -1;
+        const src = i % 3 === 0 ? LEAF_B : LEAF_A;
+        const size = 3.6 + ((i * 7) % 5) * 0.5;
+        const jitterX = (((i * 13) % 7) - 3) * 0.25;
+        const jitterY = (((i * 11) % 7) - 3) * 0.25;
+        return (
+          <img
+            key={i}
+            src={src}
+            alt=""
+            aria-hidden="true"
+            className="absolute select-none"
+            style={{
+              left: `${p.x + jitterX}%`,
+              top: `${p.y + jitterY}%`,
+              width: `${size}%`,
+              transform: `translate(-50%, -50%) rotate(${p.angle + 90 + side * 34}deg) scaleX(${side})`,
+            }}
+          />
+        );
+      })}
+    </>
   );
 }
 
@@ -65,38 +131,24 @@ export function PlayfulConnector() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute -inset-x-10 inset-y-0"
+      className="pointer-events-none absolute -inset-x-10 inset-y-0 overflow-hidden"
     >
+      {/* painted stem underneath the foliage */}
       <svg
-        viewBox="0 0 383 1000"
+        viewBox="0 0 100 100"
         preserveAspectRatio="none"
         className="absolute inset-0 h-full w-full"
       >
         <g fill="none" strokeLinecap="round">
-          <path d={STEM_A} stroke={WASH} strokeWidth={7} opacity={0.35} />
-          <path d={STEM_B} stroke={WASH} strokeWidth={6} opacity={0.3} />
-          <path d={STEM_A} stroke={MID} strokeWidth={3} />
-          <path d={STEM_B} stroke={MID} strokeWidth={2.6} />
-          <path d={STEM_A} stroke={INK} strokeWidth={1.1} opacity={0.5} />
-          <path d={STEM_B} stroke={INK} strokeWidth={1} opacity={0.45} />
+          <path d={toPathD(STEM_A)} stroke="#4F7A38" strokeWidth={0.9} vectorEffect="non-scaling-stroke" />
+          <path d={toPathD(STEM_B)} stroke="#4F7A38" strokeWidth={0.8} vectorEffect="non-scaling-stroke" />
+          <path d={toPathD(STEM_A)} stroke="#254B1E" strokeWidth={0.35} vectorEffect="non-scaling-stroke" opacity={0.7} />
+          <path d={toPathD(STEM_B)} stroke="#254B1E" strokeWidth={0.3} vectorEffect="non-scaling-stroke" opacity={0.65} />
         </g>
-
-        {/* leaf sprigs from the original painting, placed on the stems */}
       </svg>
 
-      {/* centre gutter */}
-      <Sprig left={50} top={59.5} width={5.5} rotate={8} />
-      <Sprig left={50} top={43.5} width={5.5} rotate={186} src={sprigB.url} />
-      <Sprig left={50.5} top={23} width={5.5} rotate={-14} flip />
-
-      {/* left margin */}
-      <Sprig left={8.6} top={60} width={6.5} rotate={-24} flip src={sprigB.url} />
-      <Sprig left={8.6} top={40} width={6} rotate={16} />
-      <Sprig left={8.6} top={22} width={6} rotate={-8} flip />
-
-      {/* into the hand of the figure */}
-      <Sprig left={64} top={17} width={7} rotate={-38} />
-      <Sprig left={60} top={20} width={6} rotate={28} flip src={sprigB.url} />
+      <Leaves chain={STEM_A} perSegment={11} />
+      <Leaves chain={STEM_B} perSegment={11} />
     </div>
   );
 }

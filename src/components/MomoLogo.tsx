@@ -15,12 +15,12 @@ export const MomoLogo = memo(function MomoLogo({
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3440 1180"
-        preserveAspectRatio="xMidYMid meet"
-        className="h-full w-auto"
-        fill="currentColor"
-        aria-label="MOMO Kleinkindergarten"
-        role="img"
-      >
+      preserveAspectRatio="xMidYMid meet"
+      className={className}
+      fill="currentColor"
+      aria-label="MOMO Kleinkindergarten"
+      role="img"
+    >
         <metadata>
           Created by potrace 1.16, written by Peter Selinger 2001-2019
         </metadata>

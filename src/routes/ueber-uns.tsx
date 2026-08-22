@@ -57,7 +57,7 @@ const sections: Section[] = [
     title: "Ganzheitlichkeit",
     image: ganzheitlichkeitImg,
     video: ganzheitlichkeitVideo.url,
-    alt: "Filmaufnahme: barfüßige Kinderfüße laufen durch Gras im Garten",
+    alt: "Filmaufnahme: barfüßige Kinderfüße laufen über einen Holzboden",
     text: "Ein Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten.",
   },
   {

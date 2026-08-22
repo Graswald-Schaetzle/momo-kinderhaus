@@ -51,8 +51,7 @@ const sections: Section[] = [
   {
     title: "Ruhe",
     image: ruheImg,
-    video: ruheVideo.url,
-    alt: "Filmaufnahme: eine Hand zündet eine Kerze an und pustet sie wieder aus",
+    alt: "Aquarell-Zeichnung: eine Hand zündet eine Kerze an und pustet sie wieder aus",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },
   {

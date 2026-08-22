@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 
 import naeheImg from "@/assets/ueberuns-naehe-clean2.png";
 import ruheImg from "@/assets/ueberuns-ruhe-clean2.png";
-import ruheVideo from "@/assets/film-ruhe-kerze-arthouse-compatible.mp4.asset.json";
+import ruheVideo from "@/assets/film-ruhe-kerze-blumen-hell.mp4.asset.json";
 
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2-clean2.png";
 import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";

@@ -2,7 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
+import ruheVideo from "@/assets/ueberuns-ruhe.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit.png";
+import ganzheitlichkeitVideo from "@/assets/ueberuns-ganzheitlichkeit.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit.png";
 
@@ -29,7 +31,15 @@ export const Route = createFileRoute("/ueber-uns")({
   component: UeberUns,
 });
 
-const sections = [
+type Section = {
+  title: string;
+  image: string;
+  video?: string;
+  alt: string;
+  text: string;
+};
+
+const sections: Section[] = [
   {
     title: "Nähe",
     image: naeheImg,
@@ -39,12 +49,14 @@ const sections = [
   {
     title: "Ruhe",
     image: ruheImg,
+    video: ruheVideo.url,
     alt: "Aquarell-Zeichnung: schlafendes Kind unter einem Mond",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },
   {
     title: "Ganzheitlichkeit",
     image: ganzheitlichkeitImg,
+    video: ganzheitlichkeitVideo.url,
     alt: "Aquarell-Zeichnung: barfüßiges, singendes Kind",
     text: "Ein Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten.",
   },
@@ -91,14 +103,30 @@ function UeberUns() {
               <div
                 className={`${imageFirst ? "order-1 flex justify-start" : "order-2 flex justify-end"}`}
               >
-                <img
-                  src={section.image}
-                  alt={section.alt}
-                  loading="lazy"
-                  width={900}
-                  height={900}
-                  className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
-                />
+                {section.video ? (
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster={section.image}
+                    aria-label={section.alt}
+                    width={900}
+                    height={900}
+                    className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
+                  >
+                    <source src={section.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    src={section.image}
+                    alt={section.alt}
+                    loading="lazy"
+                    width={900}
+                    height={900}
+                    className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
+                  />
+                )}
               </div>
             </section>
           );

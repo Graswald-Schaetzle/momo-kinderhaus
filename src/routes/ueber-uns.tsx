@@ -85,7 +85,7 @@ function UeberUns() {
           return (
             <section
               key={section.title}
-              className="grid grid-cols-2 items-center gap-4 py-8 sm:gap-10 sm:py-14"
+              className="grid grid-cols-2 items-stretch gap-4 py-8 sm:gap-10 sm:py-14"
             >
               <div
                 className={`${

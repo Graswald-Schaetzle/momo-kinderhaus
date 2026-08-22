@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
-import ruheVideo from "@/assets/ueberuns-ruhe.mp4.asset.json";
+import ruheVideo from "@/assets/film-ruhe.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2.png";
-import ganzheitlichkeitVideo from "@/assets/ueberuns-ganzheitlichkeit-2.mp4.asset.json";
+import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit.png";
 
@@ -50,14 +50,14 @@ const sections: Section[] = [
     title: "Ruhe",
     image: ruheImg,
     video: ruheVideo.url,
-    alt: "Aquarell-Zeichnung: schlafendes Kind unter einem Mond",
+    alt: "Filmaufnahme: ein leichter Leinenvorhang weht am offenen Fenster",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },
   {
     title: "Ganzheitlichkeit",
     image: ganzheitlichkeitImg,
     video: ganzheitlichkeitVideo.url,
-    alt: "Tuschezeichnung: kleiner runder Vogel auf einem Zweig",
+    alt: "Filmaufnahme: barfüßige Kinderfüße laufen über einen Holzboden",
     text: "Ein Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten.",
   },
   {
@@ -109,11 +109,10 @@ function UeberUns() {
                     muted
                     loop
                     playsInline
-                    poster={section.image}
                     aria-label={section.alt}
                     width={900}
-                    height={900}
-                    className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
+                    height={1200}
+                    className="aspect-[3/4] w-full max-w-[140px] rounded-sm object-cover sm:max-w-[260px] md:max-w-sm"
                   >
                     <source src={section.video} type="video/mp4" />
                   </video>

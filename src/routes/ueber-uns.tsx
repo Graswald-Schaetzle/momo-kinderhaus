@@ -39,6 +39,7 @@ type Section = {
   video?: string;
   alt: string;
   text: string;
+  imgMax?: string;
 };
 
 const sections: Section[] = [

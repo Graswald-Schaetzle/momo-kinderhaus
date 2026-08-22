@@ -104,7 +104,7 @@ function Leaves({ chain, perSegment }: { chain: Chain; perSegment: number }) {
         // alternate sides and artwork so the foliage reads as dense as the bush
         const side = i % 2 === 0 ? 1 : -1;
         const src = i % 3 === 0 ? LEAF_B : LEAF_A;
-        const size = 3.2 + ((i * 7) % 5) * 0.45;
+        const size = 3.6 + ((i * 7) % 5) * 0.5;
         const jitterX = (((i * 13) % 7) - 3) * 0.25;
         const jitterY = (((i * 11) % 7) - 3) * 0.25;
         return (
@@ -147,8 +147,8 @@ export function PlayfulConnector() {
         </g>
       </svg>
 
-      <Leaves chain={STEM_A} perSegment={7} />
-      <Leaves chain={STEM_B} perSegment={7} />
+      <Leaves chain={STEM_A} perSegment={11} />
+      <Leaves chain={STEM_B} perSegment={11} />
     </div>
   );
 }

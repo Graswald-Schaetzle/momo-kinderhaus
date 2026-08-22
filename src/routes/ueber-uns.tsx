@@ -4,7 +4,7 @@ import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
 import ruheVideo from "@/assets/film-ruhe.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2.png";
-import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";
+import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-matsch.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit.png";
 

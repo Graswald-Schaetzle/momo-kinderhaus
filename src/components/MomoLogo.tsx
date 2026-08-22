@@ -102,12 +102,12 @@ export const MomoLogo = memo(function MomoLogo({
         </g>
       <text
         x="1720"
-        y="1150"
+        y="1280"
         textAnchor="middle"
         fontFamily="var(--font-display), Georgia, serif"
-        fontWeight="400"
-        letterSpacing="72"
-        fontSize="210"
+        fontWeight="500"
+        letterSpacing="90"
+        fontSize="300"
         fill="currentColor"
       >
         KLEINKINDERGARTEN

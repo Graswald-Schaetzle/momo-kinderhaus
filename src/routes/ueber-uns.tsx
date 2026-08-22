@@ -140,7 +140,9 @@ function UeberUns() {
                     loading="lazy"
                     width={900}
                     height={900}
-                    className="w-full max-w-[140px] object-contain sm:max-w-[260px] md:max-w-sm"
+                    className={`w-full object-contain ${
+                      section.imgMax ?? "max-w-[140px] sm:max-w-[260px] md:max-w-sm"
+                    }`}
                   />
                 )}
               </div>

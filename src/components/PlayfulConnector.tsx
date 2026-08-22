@@ -1,136 +1,102 @@
-/**
- * Hand-painted green branches in the style of the "Natur" illustration.
- * They climb the outer margins and arch across the page only in the gaps
- * between the sections — never across the texts or the films.
- */
-
-const DARK = "#2E5228";
-const MID = "#4F7A38";
-const LIGHT = "#7BA055";
-
-type SprigProps = {
-  x: number;
-  y: number;
-  rotate?: number;
-  scale?: number;
-  flip?: boolean;
-  color?: string;
-};
-
-/** One painted twig with pointed brush leaves. */
-function Sprig({ x, y, rotate = 0, scale = 1, flip = false, color = MID }: SprigProps) {
-  const leaves = [6, 15, 25, 34];
-  return (
-    <g
-      transform={`translate(${x} ${y}) rotate(${rotate}) scale(${flip ? -scale : scale} ${scale})`}
-    >
-      <path
-        d="M0 0 C 3 -12, -2 -24, 1 -38"
-        fill="none"
-        stroke={color}
-        strokeWidth={2}
-        strokeLinecap="round"
-      />
-      {leaves.map((t, i) => (
-        <path
-          key={t}
-          transform={`translate(${i % 2 ? 1 : -0.5} ${-t}) rotate(${i % 2 ? 44 : -40})`}
-          d="M0 0 C 4 -2.4, 9.5 -2.4, 13 0 C 9.5 2.8, 4 2.8, 0 0 Z"
-          fill={i % 2 ? color : DARK}
-          stroke={DARK}
-          strokeWidth={0.6}
-          strokeLinejoin="round"
-        />
-      ))}
-      <path
-        transform="translate(1 -38) rotate(-90)"
-        d="M0 0 C 3 -2, 8 -2, 11 0 C 8 2.4, 3 2.4, 0 0 Z"
-        fill={LIGHT}
-        stroke={DARK}
-        strokeWidth={0.6}
-      />
-    </g>
-  );
-}
-
-/** Pale-yellow blossom with the dark brush outline of the artwork. */
-function Blossom({
-  x,
-  y,
-  scale = 1,
-  rotate = 0,
-}: {
-  x: number;
-  y: number;
-  scale?: number;
-  rotate?: number;
-}) {
-  return (
-    <g transform={`translate(${x} ${y}) rotate(${rotate}) scale(${scale})`}>
-      {[0, 60, 120, 180, 240, 300].map((a) => (
-        <path
-          key={a}
-          transform={`rotate(${a})`}
-          d="M0 0 C -4 -7, -3.5 -15, 0 -19 C 3.5 -15, 4 -7, 0 0 Z"
-          fill="#E8E3A8"
-          stroke="#1F1B16"
-          strokeWidth={1.3}
-          strokeLinejoin="round"
-        />
-      ))}
-      <circle r={3.2} fill="#E8E3A8" stroke="#1F1B16" strokeWidth={1.2} />
-    </g>
-  );
-}
+import sprigA from "@/assets/vine-sprig-a.png.asset.json";
+import sprigB from "@/assets/vine-sprig-b.png.asset.json";
 
 /**
- * Two painted branches that grow out of the "Natur" bush drawing (left column)
- * and climb upwards through the gutter and the left margin until they reach the
- * hand of the woman who holds the child in the "Nähe" drawing — she holds both
- * of them. They stay in the gaps and margins, never across text or films.
+ * The branches are cut directly out of the "Natur" painting, so they are the
+ * exact same brush drawing. They grow out of the bush in the "Natur" section
+ * upwards to the hand of the woman in the "Nähe" drawing.
+ *
+ * Geometry rules (viewBox 0 0 383 1000, matching the section grid):
+ *  - text columns live at x 40-160 and x 224-345 → stems only use the left
+ *    margin (x ≈ 32) and the centre gutter (x ≈ 191)
+ *  - horizontal moves only happen in the gaps between sections
+ *    (y ≈ 182-244, 374-436, 565-627, 763-825)
  */
+
+const INK = "#1E3A1B";
+const MID = "#3F6B2E";
+const WASH = "#8FB06A";
+
 const STEM_A =
-  "M104 686 C 116 638, 150 620, 176 598 C 192 556, 184 500, 190 452 C 196 408, 200 376, 194 336 C 188 282, 228 232, 266 192 C 284 172, 296 154, 301 140";
+  "M108 646 C 134 622, 176 616, 189 592 C 196 520, 187 430, 191 350 C 192 302, 186 268, 197 240 C 212 204, 246 168, 272 136";
 
 const STEM_B =
-  "M92 682 C 70 644, 40 628, 24 596 C 8 560, 14 500, 17 452 C 20 380, 10 300, 16 238 C 22 208, 62 196, 122 200 C 192 204, 252 180, 282 152 C 292 144, 297 141, 301 140";
+  "M96 652 C 72 644, 44 634, 34 602 C 28 540, 37 460, 33 390 C 29 320, 31 262, 41 232 C 61 205, 130 200, 176 195 C 216 190, 251 164, 272 136";
+
+type SprigProps = {
+  /** position of the sprig centre, in % of the connector box */
+  left: number;
+  top: number;
+  /** rendered width in % of the connector box */
+  width: number;
+  rotate?: number;
+  flip?: boolean;
+  src?: string;
+  opacity?: number;
+};
+
+function Sprig({
+  left,
+  top,
+  width,
+  rotate = 0,
+  flip = false,
+  src = sprigA.url,
+  opacity = 1,
+}: SprigProps) {
+  return (
+    <img
+      src={src}
+      alt=""
+      aria-hidden="true"
+      className="absolute select-none"
+      style={{
+        left: `${left}%`,
+        top: `${top}%`,
+        width: `${width}%`,
+        opacity,
+        transform: `translate(-50%, -50%) rotate(${rotate}deg) scaleX(${flip ? -1 : 1})`,
+      }}
+    />
+  );
+}
 
 export function PlayfulConnector() {
   return (
-    <svg
+    <div
       aria-hidden="true"
-      viewBox="0 0 383 1000"
-      preserveAspectRatio="none"
-      className="pointer-events-none absolute -inset-x-10 inset-y-0 h-full w-[calc(100%+5rem)] opacity-90"
+      className="pointer-events-none absolute -inset-x-10 inset-y-0"
     >
-      <g fill="none" strokeLinecap="round">
-        <path d={STEM_A} stroke={DARK} strokeWidth={3.4} opacity={0.32} />
-        <path d={STEM_B} stroke={DARK} strokeWidth={3.2} opacity={0.28} />
-        <path d={STEM_A} stroke={MID} strokeWidth={2.2} />
-        <path d={STEM_B} stroke={MID} strokeWidth={1.9} />
-      </g>
+      <svg
+        viewBox="0 0 383 1000"
+        preserveAspectRatio="none"
+        className="absolute inset-0 h-full w-full"
+      >
+        <g fill="none" strokeLinecap="round">
+          <path d={STEM_A} stroke={WASH} strokeWidth={7} opacity={0.35} />
+          <path d={STEM_B} stroke={WASH} strokeWidth={6} opacity={0.3} />
+          <path d={STEM_A} stroke={MID} strokeWidth={3} />
+          <path d={STEM_B} stroke={MID} strokeWidth={2.6} />
+          <path d={STEM_A} stroke={INK} strokeWidth={1.1} opacity={0.5} />
+          <path d={STEM_B} stroke={INK} strokeWidth={1} opacity={0.45} />
+        </g>
 
-      {/* leaves growing along the two stems */}
-      <Sprig x={176} y={598} rotate={-14} scale={0.62} />
-      <Sprig x={188} y={520} rotate={10} scale={0.6} flip color={LIGHT} />
-      <Sprig x={191} y={430} rotate={-12} scale={0.62} />
-      <Sprig x={196} y={352} rotate={12} scale={0.6} flip />
-      <Sprig x={232} y={232} rotate={-26} scale={0.62} color={LIGHT} />
-      <Sprig x={280} y={172} rotate={-40} scale={0.55} flip />
+        {/* leaf sprigs from the original painting, placed on the stems */}
+      </svg>
 
-      <Sprig x={40} y={628} rotate={22} scale={0.68} flip />
-      <Sprig x={17} y={520} rotate={-10} scale={0.7} />
-      <Sprig x={15} y={400} rotate={12} scale={0.7} flip color={LIGHT} />
-      <Sprig x={16} y={280} rotate={-8} scale={0.65} />
-      <Sprig x={80} y={198} rotate={16} scale={0.58} flip />
-      <Sprig x={170} y={200} rotate={-14} scale={0.58} color={LIGHT} />
+      {/* centre gutter */}
+      <Sprig left={50} top={59.5} width={5.5} rotate={8} />
+      <Sprig left={50} top={43.5} width={5.5} rotate={186} src={sprigB.url} />
+      <Sprig left={50.5} top={23} width={5.5} rotate={-14} flip />
 
-      {/* blossoms, echoing the yellow flower in the hand */}
-      <Blossom x={192} y={476} scale={0.6} rotate={14} />
-      <Blossom x={20} y={344} scale={0.58} rotate={-18} />
-      <Blossom x={126} y={202} scale={0.62} rotate={10} />
-    </svg>
+      {/* left margin */}
+      <Sprig left={8.6} top={60} width={6.5} rotate={-24} flip src={sprigB.url} />
+      <Sprig left={8.6} top={40} width={6} rotate={16} />
+      <Sprig left={8.6} top={22} width={6} rotate={-8} flip />
 
+      {/* into the hand of the figure */}
+      <Sprig left={64} top={17} width={7} rotate={-38} />
+      <Sprig left={60} top={20} width={6} rotate={28} flip src={sprigB.url} />
+    </div>
   );
 }
-

@@ -140,7 +140,7 @@ function UeberUns() {
                     loading="lazy"
                     width={900}
                     height={900}
-                    className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
+                    className="w-full max-w-[140px] object-contain sm:max-w-[260px] md:max-w-sm"
                   />
                 )}
               </div>

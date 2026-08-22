@@ -31,7 +31,15 @@ export const Route = createFileRoute("/ueber-uns")({
   component: UeberUns,
 });
 
-const sections = [
+type Section = {
+  title: string;
+  image: string;
+  video?: string;
+  alt: string;
+  text: string;
+};
+
+const sections: Section[] = [
   {
     title: "Nähe",
     image: naeheImg,

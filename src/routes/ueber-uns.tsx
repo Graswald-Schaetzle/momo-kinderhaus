@@ -101,7 +101,7 @@ function UeberUns() {
               </div>
 
               <div
-                className={`${imageFirst ? "order-1 flex justify-start" : "order-2 flex justify-end"}`}
+                className={`${imageFirst ? "order-1" : "order-2"} flex h-full items-center justify-center`}
               >
                 {section.video ? (
                   <video
@@ -112,7 +112,7 @@ function UeberUns() {
                     aria-label={section.alt}
                     width={1200}
                     height={675}
-                    className="aspect-video w-full max-w-[200px] rounded-none object-cover sm:max-w-[360px] md:max-w-lg"
+                    className="h-full w-full rounded-none object-cover"
                   >
                     <source src={section.video} type="video/mp4" />
                   </video>

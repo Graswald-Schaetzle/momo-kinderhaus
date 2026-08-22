@@ -8,7 +8,7 @@ import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2-clean2.png
 import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur-clean2.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit-clean2.png";
-import eigenstaendigkeitVideo from "@/assets/film-eigenstaendigkeit-arthouse.mp4.asset.json";
+import eigenstaendigkeitVideo from "@/assets/film-eigenstaendigkeit-kapla-graded.mp4.asset.json";
 
 export const Route = createFileRoute("/ueber-uns")({
   head: () => ({

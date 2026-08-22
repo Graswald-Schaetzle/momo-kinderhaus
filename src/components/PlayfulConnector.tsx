@@ -25,9 +25,11 @@ const STEM_A: Chain = [
   [50, 46],
   [50, 38],
   [49, 30],
-  [49, 25],
-  [55, 20],
-  [63, 16.5],
+  [49, 26],
+  [52, 22],
+  [58, 19],
+  [63, 17],
+  [67, 15.5],
   [70, 13.8],
 ];
 
@@ -62,7 +64,7 @@ function bezier(p0: P, p1: P, p2: P, p3: P, t: number): P {
 function toPathD(chain: Chain) {
   const start = chain[0] as P;
   let d = `M ${start[0]} ${start[1]}`;
-  for (let i = 1; i < chain.length; i += 3) {
+  for (let i = 1; i + 2 < chain.length; i += 3) {
     const c1 = chain[i] as P;
     const c2 = chain[i + 1] as P;
     const end = chain[i + 2] as P;
@@ -74,7 +76,7 @@ function toPathD(chain: Chain) {
 /** dense sample points with tangent angle along the whole chain */
 function samples(chain: Chain, perSegment: number) {
   const out: { x: number; y: number; angle: number }[] = [];
-  for (let i = 1; i < chain.length; i += 3) {
+  for (let i = 1; i + 2 < chain.length; i += 3) {
     const p0 = chain[i - 1] as P;
     const p1 = chain[i] as P;
     const p2 = chain[i + 1] as P;

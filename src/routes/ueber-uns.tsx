@@ -71,7 +71,7 @@ const sections: Section[] = [
     title: "Eigenständigkeit",
     image: eigenstaendigkeitImg,
     video: eigenstaendigkeitVideo.url,
-    alt: "Filmaufnahme: Kinderhände stapeln Bauklötze auf einem Holzboden",
+    alt: "Filmaufnahme: Kinderhände stapeln Bauklötze, der Turm fällt um",
     text: "Bei uns gibt es feste Rituale und klare Regeln, die dem Alltag Halt geben. Innerhalb dieses verlässlichen Rahmens soll euer Kind aber mitbestimmen, zum Beispiel welches Lied im Morgenkreis gesungen wird oder womit im Freispiel gebaut und gestaltet wird. So erlebt es von Anfang an: Meine Meinung zählt, in einem Rahmen der mich sicher fühlen lässt.",
   },
 ];

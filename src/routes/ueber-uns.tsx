@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 
 import naeheImg from "@/assets/ueberuns-naehe-clean2.png";
 import ruheImg from "@/assets/ueberuns-ruhe-clean2.png";
+import ruheVideo from "@/assets/film-ruhe-kerze-arthouse.mp4.asset.json";
 
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2-clean2.png";
 import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";
@@ -51,6 +52,7 @@ const sections: Section[] = [
   {
     title: "Ruhe",
     image: ruheImg,
+    video: ruheVideo.url,
     alt: "Aquarell-Zeichnung: eine Hand zündet eine Kerze an und pustet sie wieder aus",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },

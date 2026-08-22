@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
-import ruheVideo from "@/assets/film-ruhe-kerze.mp4.asset.json";
+import ruheVideo from "@/assets/film-ruhe-kerze-quer.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2.png";
-import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-gras-original-style.mp4.asset.json";
+import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-gras-quer.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit.png";
 
@@ -110,9 +110,9 @@ function UeberUns() {
                     loop
                     playsInline
                     aria-label={section.alt}
-                    width={900}
-                    height={1200}
-                    className="aspect-[3/4] w-full max-w-[140px] rounded-sm object-cover sm:max-w-[260px] md:max-w-sm"
+                    width={1200}
+                    height={675}
+                    className="aspect-video w-full max-w-[200px] rounded-sm object-cover sm:max-w-[360px] md:max-w-lg"
                   >
                     <source src={section.video} type="video/mp4" />
                   </video>

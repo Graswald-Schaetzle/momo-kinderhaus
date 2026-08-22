@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
-import ruheVideo from "@/assets/film-ruhe-kerze-quer-graded.mp4.asset.json";
+import ruheVideo from "@/assets/film-ruhe-kerze-witzig.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2.png";
-import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-gras-quer-graded.mp4.asset.json";
+import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-gras-witzig.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit.png";
 

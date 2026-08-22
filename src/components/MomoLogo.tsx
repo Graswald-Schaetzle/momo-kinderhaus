@@ -12,10 +12,9 @@ export const MomoLogo = memo(function MomoLogo({
   className?: string;
 }) {
   return (
-    <span className={`flex flex-col items-center ${className ?? ""}`}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 3440 952"
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 3440 1180"
         preserveAspectRatio="xMidYMid meet"
         className="h-full w-auto"
         fill="currentColor"

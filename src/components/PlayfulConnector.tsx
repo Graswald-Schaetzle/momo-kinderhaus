@@ -84,16 +84,16 @@ function Blossom({
 }
 
 /**
- * One continuous painted branch that starts at the head of the figure in the
- * "Nähe" drawing, meanders through the gaps between the sections and the outer
- * margins — never across a text column or a film — and climbs out at the top
- * right again.
+ * Two painted branches that grow out of the "Natur" bush drawing (left column)
+ * and climb upwards through the gutter and the left margin until they reach the
+ * hand of the woman who holds the child in the "Nähe" drawing — she holds both
+ * of them. They stay in the gaps and margins, never across text or films.
  */
-const STEM =
-  "M300 52 C 293 108, 302 152, 252 186 C 212 214, 120 188, 62 214 C 22 232, 10 302, 15 380 C 19 430, 62 400, 122 409 C 202 420, 300 391, 340 420 C 372 443, 373 520, 366 590 C 359 652, 300 618, 240 628 C 182 637, 140 608, 96 626 C 58 642, 38 700, 60 760 C 82 814, 150 788, 202 800 C 262 813, 330 784, 358 812 C 383 836, 378 920, 372 988";
+const STEM_A =
+  "M104 686 C 116 638, 150 620, 176 598 C 192 556, 184 500, 190 452 C 196 408, 200 376, 194 336 C 188 282, 228 232, 266 192 C 284 172, 296 154, 301 140";
 
-const STEM_ECHO =
-  "M300 52 C 297 110, 308 154, 256 192 C 214 222, 122 196, 66 220 C 28 238, 16 304, 21 378";
+const STEM_B =
+  "M92 682 C 70 644, 40 628, 24 596 C 8 560, 14 500, 17 452 C 20 380, 10 300, 16 238 C 22 208, 62 196, 122 200 C 192 204, 252 180, 282 152 C 292 144, 297 141, 301 140";
 
 export function PlayfulConnector() {
   return (
@@ -104,33 +104,33 @@ export function PlayfulConnector() {
       className="pointer-events-none absolute -inset-x-10 inset-y-0 h-full w-[calc(100%+5rem)] opacity-90"
     >
       <g fill="none" strokeLinecap="round">
-        <path d={STEM} stroke={DARK} strokeWidth={3.4} opacity={0.35} />
-        <path d={STEM} stroke={MID} strokeWidth={2.2} />
-        <path d={STEM_ECHO} stroke={LIGHT} strokeWidth={1} opacity={0.7} />
+        <path d={STEM_A} stroke={DARK} strokeWidth={3.4} opacity={0.32} />
+        <path d={STEM_B} stroke={DARK} strokeWidth={3.2} opacity={0.28} />
+        <path d={STEM_A} stroke={MID} strokeWidth={2.2} />
+        <path d={STEM_B} stroke={MID} strokeWidth={1.9} />
       </g>
 
-      {/* leaves growing off the branch */}
-      <Sprig x={296} y={96} rotate={166} scale={0.7} color={LIGHT} />
-      <Sprig x={252} y={186} rotate={-104} scale={0.7} flip />
-      <Sprig x={150} y={196} rotate={-14} scale={0.62} />
-      <Sprig x={62} y={214} rotate={26} scale={0.7} color={LIGHT} />
-      <Sprig x={15} y={330} rotate={12} scale={0.75} flip />
-      <Sprig x={122} y={409} rotate={-16} scale={0.62} />
-      <Sprig x={252} y={404} rotate={14} scale={0.6} flip color={LIGHT} />
-      <Sprig x={366} y={520} rotate={-12} scale={0.75} flip />
-      <Sprig x={300} y={618} rotate={16} scale={0.6} />
-      <Sprig x={140} y={610} rotate={-12} scale={0.62} color={LIGHT} />
-      <Sprig x={48} y={706} rotate={22} scale={0.72} flip />
-      <Sprig x={150} y={788} rotate={-14} scale={0.6} />
-      <Sprig x={300} y={792} rotate={12} scale={0.6} flip color={LIGHT} />
-      <Sprig x={374} y={900} rotate={-8} scale={0.7} flip />
+      {/* leaves growing along the two stems */}
+      <Sprig x={176} y={598} rotate={-14} scale={0.62} />
+      <Sprig x={188} y={520} rotate={10} scale={0.6} flip color={LIGHT} />
+      <Sprig x={191} y={430} rotate={-12} scale={0.62} />
+      <Sprig x={196} y={352} rotate={12} scale={0.6} flip />
+      <Sprig x={232} y={232} rotate={-26} scale={0.62} color={LIGHT} />
+      <Sprig x={280} y={172} rotate={-40} scale={0.55} flip />
+
+      <Sprig x={40} y={628} rotate={22} scale={0.68} flip />
+      <Sprig x={17} y={520} rotate={-10} scale={0.7} />
+      <Sprig x={15} y={400} rotate={12} scale={0.7} flip color={LIGHT} />
+      <Sprig x={16} y={280} rotate={-8} scale={0.65} />
+      <Sprig x={80} y={198} rotate={16} scale={0.58} flip />
+      <Sprig x={170} y={200} rotate={-14} scale={0.58} color={LIGHT} />
 
       {/* blossoms, echoing the yellow flower in the hand */}
-      <Blossom x={202} y={200} scale={0.7} rotate={12} />
-      <Blossom x={340} y={420} scale={0.6} rotate={-16} />
-      <Blossom x={96} y={626} scale={0.68} rotate={22} />
-      <Blossom x={202} y={800} scale={0.62} rotate={-10} />
+      <Blossom x={192} y={476} scale={0.6} rotate={14} />
+      <Blossom x={20} y={344} scale={0.58} rotate={-18} />
+      <Blossom x={126} y={202} scale={0.62} rotate={10} />
     </svg>
+
   );
 }
 

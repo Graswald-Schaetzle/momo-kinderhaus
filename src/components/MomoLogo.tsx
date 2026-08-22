@@ -102,8 +102,8 @@ export const MomoLogo = memo(function MomoLogo({
         -81 26 -135 25 -188 -1z"/>
         </g>
       </svg>
-      <span className="mt-[0.18em] font-display font-normal leading-none tracking-[0.34em]">
-        <span className="text-[0.42em]">KLEINKINDERGARTEN</span>
+      <span className="mt-[0.14em] block font-display font-normal leading-none tracking-[0.22em] text-[0.58em]">
+        KLEINKINDERGARTEN
       </span>
     </span>
   );

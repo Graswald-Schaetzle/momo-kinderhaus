@@ -97,16 +97,6 @@ export function PlayfulConnector() {
       {/* into the hand of the figure */}
       <Sprig left={64} top={17} width={7} rotate={-38} />
       <Sprig left={60} top={20} width={6} rotate={28} flip src={sprigB.url} />
-      <Sprig left={50.5} top={23} width={9} rotate={-14} flip />
-
-      {/* left margin */}
-      <Sprig left={9} top={60} width={9} rotate={-24} flip src={sprigB.url} />
-      <Sprig left={8.5} top={40} width={8.5} rotate={16} />
-      <Sprig left={9} top={22} width={8} rotate={-8} flip />
-
-      {/* into the hand of the figure */}
-      <Sprig left={66} top={15} width={10} rotate={-38} />
-      <Sprig left={62} top={19.5} width={8} rotate={28} flip src={sprigB.url} />
     </div>
   );
 }

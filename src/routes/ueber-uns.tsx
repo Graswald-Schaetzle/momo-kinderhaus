@@ -92,10 +92,10 @@ function UeberUns() {
                   imageFirst ? "order-2" : "order-1"
                 } ${imageFirst ? "pl-2 sm:pl-6" : "pr-2 sm:pr-6"} text-left`}
               >
-                <h2 className="font-display text-2xl font-normal leading-tight tracking-[0.04em] text-[#722F37] sm:text-4xl md:text-5xl">
+                <h2 className="font-display text-xl font-normal leading-tight tracking-[0.04em] sm:text-3xl md:text-4xl">
                   {section.title}
                 </h2>
-                <p className="mt-3 text-justify text-sm leading-relaxed text-[#722F37] sm:mt-5 sm:text-lg sm:leading-relaxed md:text-xl">
+                <p className="mt-2 text-justify text-[11px] leading-snug sm:mt-4 sm:text-base sm:leading-relaxed md:text-lg">
                   {section.text}
                 </p>
               </div>

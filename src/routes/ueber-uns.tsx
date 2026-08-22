@@ -112,7 +112,7 @@ function UeberUns() {
                     aria-label={section.alt}
                     width={1200}
                     height={675}
-                    className="aspect-video w-full max-w-[200px] rounded-sm object-cover sm:max-w-[360px] md:max-w-lg"
+                    className="aspect-video w-full max-w-[200px] rounded-none object-cover sm:max-w-[360px] md:max-w-lg"
                   >
                     <source src={section.video} type="video/mp4" />
                   </video>

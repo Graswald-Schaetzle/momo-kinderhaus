@@ -85,7 +85,8 @@ function UeberUns() {
         1–3 Jahre
       </p>
 
-      <div className="mx-auto max-w-6xl px-6 pt-4 sm:px-10 md:px-14">
+      <div className="relative mx-auto max-w-6xl px-6 pt-4 sm:px-10 md:px-14">
+        <PlayfulConnector />
         {sections.map((section, i) => {
           const imageFirst = i % 2 === 1;
           return (

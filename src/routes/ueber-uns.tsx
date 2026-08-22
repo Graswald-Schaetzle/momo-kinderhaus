@@ -81,6 +81,10 @@ function UeberUns() {
     <main className="min-h-screen pb-32">
       <SiteHeader />
 
+      <p className="mt-6 text-center font-display text-xl font-normal leading-tight tracking-[0.08em] sm:text-3xl md:text-4xl">
+        1–3 Jahre
+      </p>
+
       <div className="mx-auto max-w-6xl px-6 pt-12 sm:px-10 md:px-14">
         {sections.map((section, i) => {
           const imageFirst = i % 2 === 1;

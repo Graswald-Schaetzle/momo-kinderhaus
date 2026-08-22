@@ -120,10 +120,11 @@ function UeberUns() {
                     aria-label={section.alt}
                     width={1200}
                     height={675}
-                    className="h-full w-full rounded-none object-cover"
+                    className="max-h-full w-full rounded-none object-cover"
                   >
                     <source src={section.video} type="video/mp4" />
                   </video>
+
                 ) : (
                   <img
                     src={section.image}

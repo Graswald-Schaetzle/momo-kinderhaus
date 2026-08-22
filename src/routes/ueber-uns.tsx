@@ -68,7 +68,7 @@ const sections: Section[] = [
     text: "Unser Garten ist ein echter kleiner Naturraum: klettern auf Baumstämmen, matschen mit Wasser und Erde, Vögel beobachten. Kinder lernen hier mit allen Sinnen und in ihrem eigenen Tempo draußen, wo Entdecken noch echt ist.",
   },
   {
-    title: "Eigenständigkeit",
+    title: "Eigenständikeit",
     image: eigenstaendigkeitImg,
     video: eigenstaendigkeitVideo.url,
     alt: "Filmaufnahme: Kinderhände stapeln Bauklötze, der Turm fällt um",

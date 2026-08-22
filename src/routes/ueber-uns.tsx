@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
-import naeheImg from "@/assets/ueberuns-naehe.png";
+import naeheNaturImg from "@/assets/ueberuns-naehe-natur.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
 import ruheVideo from "@/assets/film-ruhe-kerze-verspielt.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2.png";
 import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";
-import naturImg from "@/assets/ueberuns-natur.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit.png";
 import eigenstaendigkeitVideo from "@/assets/film-eigenstaendigkeit-portrait.mp4.asset.json";
 

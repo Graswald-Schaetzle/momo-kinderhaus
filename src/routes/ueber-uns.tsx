@@ -66,7 +66,7 @@ const sections: Section[] = [
   {
     title: "Natur",
     image: naturImg,
-    alt: "Aquarell-Zeichnung: Baum mit Vogel und Kind auf einem Baumstamm",
+    alt: "Aquarell-Zeichnung: Figur mit Vogelnest als Kopf, hält eine riesige gelbe Blume",
     text: "Unser Garten ist ein echter kleiner Naturraum: klettern auf Baumstämmen, matschen mit Wasser und Erde, Vögel beobachten. Kinder lernen hier mit allen Sinnen und in ihrem eigenen Tempo draußen, wo Entdecken noch echt ist.",
   },
   {

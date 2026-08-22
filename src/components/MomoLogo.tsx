@@ -106,8 +106,8 @@ export const MomoLogo = memo(function MomoLogo({
         textAnchor="middle"
         fontFamily="var(--font-display), Georgia, serif"
         fontWeight="500"
-        letterSpacing="90"
-        fontSize="300"
+        letterSpacing="70"
+        fontSize="200"
         fill="currentColor"
       >
         KLEINKINDERGARTEN

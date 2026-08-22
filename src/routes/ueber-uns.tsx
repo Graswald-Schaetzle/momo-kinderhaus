@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
-import ruheVideo from "@/assets/film-ruhe.mp4.asset.json";
+import ruheVideo from "@/assets/film-ruhe-kerze.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2.png";
 import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-matsch.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur.png";
@@ -50,7 +50,7 @@ const sections: Section[] = [
     title: "Ruhe",
     image: ruheImg,
     video: ruheVideo.url,
-    alt: "Filmaufnahme: ein leichter Leinenvorhang weht am offenen Fenster",
+    alt: "Filmaufnahme: eine Hand zündet eine Kerze an und pustet sie wieder aus",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },
   {

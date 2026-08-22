@@ -83,16 +83,17 @@ function Blossom({
   );
 }
 
-/** Arch that crosses the page inside the gap between two sections. */
-function Arch({ y, dir = 1 }: { y: number; dir?: 1 | -1 }) {
-  const d =
-    dir === 1
-      ? `M6 ${y - 14} C 70 ${y + 10}, 150 ${y - 12}, 200 ${y + 8} C 260 ${y + 26}, 330 ${y - 6}, 377 ${y + 12}`
-      : `M377 ${y - 14} C 320 ${y + 10}, 240 ${y - 12}, 190 ${y + 8} C 130 ${y + 26}, 60 ${y - 6}, 6 ${y + 12}`;
-  return (
-    <path d={d} fill="none" stroke={MID} strokeWidth={1.9} strokeLinecap="round" />
-  );
-}
+/**
+ * One continuous painted branch that starts at the head of the figure in the
+ * "Nähe" drawing, meanders through the gaps between the sections and the outer
+ * margins — never across a text column or a film — and climbs out at the top
+ * right again.
+ */
+const STEM =
+  "M300 52 C 293 108, 302 152, 252 186 C 212 214, 120 188, 62 214 C 22 232, 10 302, 15 380 C 19 430, 62 400, 122 409 C 202 420, 300 391, 340 420 C 372 443, 373 520, 366 590 C 359 652, 300 618, 240 628 C 182 637, 140 608, 96 626 C 58 642, 38 700, 60 760 C 82 814, 150 788, 202 800 C 262 813, 330 784, 358 812 C 383 836, 378 920, 372 988";
+
+const STEM_ECHO =
+  "M300 52 C 297 110, 308 154, 256 192 C 214 222, 122 196, 66 220 C 28 238, 16 304, 21 378";
 
 export function PlayfulConnector() {
   return (
@@ -103,55 +104,33 @@ export function PlayfulConnector() {
       className="pointer-events-none absolute -inset-x-10 inset-y-0 h-full w-[calc(100%+5rem)] opacity-90"
     >
       <g fill="none" strokeLinecap="round">
-        {/* left margin vine */}
-        <path
-          d="M8 40 C 2 130, 12 200, 6 292 C 1 384, 12 450, 7 545 C 3 640, 13 710, 8 800 C 4 880, 11 930, 7 990"
-          stroke={MID}
-          strokeWidth={2.2}
-        />
-        <path
-          d="M8 40 C 14 130, 4 200, 10 292"
-          stroke={DARK}
-          strokeWidth={0.9}
-          opacity={0.5}
-        />
-        {/* right margin vine */}
-        <path
-          d="M375 90 C 381 180, 371 250, 377 342 C 382 434, 371 500, 376 595 C 380 690, 370 760, 375 850 C 379 920, 372 960, 376 998"
-          stroke={MID}
-          strokeWidth={2.2}
-        />
-
-        {/* arches through the gaps between the sections */}
-        <Arch y={200} dir={1} />
-        <Arch y={400} dir={-1} />
-        <Arch y={600} dir={1} />
-        <Arch y={800} dir={-1} />
+        <path d={STEM} stroke={DARK} strokeWidth={3.4} opacity={0.35} />
+        <path d={STEM} stroke={MID} strokeWidth={2.2} />
+        <path d={STEM_ECHO} stroke={LIGHT} strokeWidth={1} opacity={0.7} />
       </g>
 
-      {/* sprigs on the margins */}
-      <Sprig x={7} y={180} rotate={12} scale={0.75} color={LIGHT} />
-      <Sprig x={7} y={330} rotate={-8} scale={0.8} flip />
-      <Sprig x={8} y={500} rotate={10} scale={0.75} />
-      <Sprig x={8} y={700} rotate={-6} scale={0.8} flip color={LIGHT} />
-      <Sprig x={7} y={900} rotate={8} scale={0.7} />
-
-      <Sprig x={376} y={240} rotate={-12} scale={0.75} flip />
-      <Sprig x={375} y={430} rotate={8} scale={0.8} color={LIGHT} />
-      <Sprig x={375} y={640} rotate={-10} scale={0.75} flip />
-      <Sprig x={376} y={880} rotate={6} scale={0.7} />
-
-      {/* sprigs riding on the arches */}
-      <Sprig x={150} y={196} rotate={-14} scale={0.6} />
-      <Sprig x={240} y={418} rotate={12} scale={0.6} flip color={LIGHT} />
-      <Sprig x={140} y={600} rotate={-10} scale={0.6} />
-      <Sprig x={250} y={818} rotate={14} scale={0.6} flip />
+      {/* leaves growing off the branch */}
+      <Sprig x={296} y={96} rotate={166} scale={0.7} color={LIGHT} />
+      <Sprig x={252} y={186} rotate={-104} scale={0.7} flip />
+      <Sprig x={150} y={196} rotate={-14} scale={0.62} />
+      <Sprig x={62} y={214} rotate={26} scale={0.7} color={LIGHT} />
+      <Sprig x={15} y={330} rotate={12} scale={0.75} flip />
+      <Sprig x={122} y={409} rotate={-16} scale={0.62} />
+      <Sprig x={252} y={404} rotate={14} scale={0.6} flip color={LIGHT} />
+      <Sprig x={366} y={520} rotate={-12} scale={0.75} flip />
+      <Sprig x={300} y={618} rotate={16} scale={0.6} />
+      <Sprig x={140} y={610} rotate={-12} scale={0.62} color={LIGHT} />
+      <Sprig x={48} y={706} rotate={22} scale={0.72} flip />
+      <Sprig x={150} y={788} rotate={-14} scale={0.6} />
+      <Sprig x={300} y={792} rotate={12} scale={0.6} flip color={LIGHT} />
+      <Sprig x={374} y={900} rotate={-8} scale={0.7} flip />
 
       {/* blossoms, echoing the yellow flower in the hand */}
-      <Blossom x={200} y={208} scale={0.7} rotate={12} />
-      <Blossom x={7} y={620} scale={0.6} rotate={-18} />
-      <Blossom x={376} y={545} scale={0.65} rotate={24} />
-      <Blossom x={190} y={808} scale={0.7} rotate={-10} />
+      <Blossom x={202} y={200} scale={0.7} rotate={12} />
+      <Blossom x={340} y={420} scale={0.6} rotate={-16} />
+      <Blossom x={96} y={626} scale={0.68} rotate={22} />
+      <Blossom x={202} y={800} scale={0.62} rotate={-10} />
     </svg>
   );
 }
+

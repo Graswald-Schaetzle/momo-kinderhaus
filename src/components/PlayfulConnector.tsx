@@ -8,12 +8,12 @@ export function PlayfulConnector() {
       aria-hidden="true"
       viewBox="0 0 100 1000"
       preserveAspectRatio="none"
-      className="pointer-events-none absolute inset-0 h-full w-full text-foreground/45 mix-blend-multiply"
+      className="pointer-events-none absolute inset-0 h-full w-full text-foreground/40 mix-blend-multiply"
     >
       <g
         fill="none"
         stroke="currentColor"
-        strokeWidth={2.2}
+        strokeWidth={1.8}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"

@@ -6,7 +6,7 @@ import ruheImg from "@/assets/ueberuns-ruhe-symbol.png";
 
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2-clean2.png";
 import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";
-import naturImg from "@/assets/ueberuns-natur-clean2.png";
+import naturImg from "@/assets/ueberuns-natur-recolored.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit-clean2.png";
 import eigenstaendigkeitVideo from "@/assets/film-eigenstaendigkeit-kapla-graded.mp4.asset.json";
 
@@ -66,7 +66,7 @@ const sections: Section[] = [
   {
     title: "Natur",
     image: naturImg,
-    alt: "Aquarell-Zeichnung: Figur mit Ästen als Kopf und versteckten Augen",
+    alt: "Aquarell-Zeichnung: Figur mit Ästen als Kopf und versteckten Augen, in Bordeaux und Herbsttönen",
     text: "Unser Garten ist ein echter kleiner Naturraum: klettern auf Baumstämmen, matschen mit Wasser und Erde, Vögel beobachten. Kinder lernen hier mit allen Sinnen und in ihrem eigenen Tempo draußen, wo Entdecken noch echt ist.",
   },
   {

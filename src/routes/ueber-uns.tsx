@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
+import { PlayfulConnector } from "@/components/PlayfulConnector";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
 import ruheVideo from "@/assets/film-ruhe-kerze-verspielt.mp4.asset.json";

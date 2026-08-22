@@ -55,11 +55,11 @@ const sections: Section[] = [
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },
   {
-    title: "Ganzheitlichkeit",
+    title: "Ganzheitlickeit",
     image: ganzheitlichkeitImg,
     video: ganzheitlichkeitVideo.url,
     alt: "Filmaufnahme: barfüßige Kinderfüße laufen über einen Holzboden",
-    text: "Ein Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten.",
+    text: "\nEin Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten.",
   },
   {
     title: "Natur",

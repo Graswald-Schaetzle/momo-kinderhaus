@@ -147,13 +147,8 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
       </div>
 
 
-      <Link to="/" className="no-underline flex flex-col items-center">
-        <MomoLogo
-          className="h-10 w-auto sm:h-24 md:h-28"
-        />
-        <span className="mt-1 font-display text-sm font-normal tracking-[0.06em] sm:mt-4 sm:text-xl md:text-2xl">
-          KLEINKINDERGARTEN
-        </span>
+      <Link to="/" className="no-underline flex flex-col items-center text-foreground">
+        <MomoLogo className="h-12 sm:h-24 md:h-28" />
       </Link>
 
       {showSlogan && (

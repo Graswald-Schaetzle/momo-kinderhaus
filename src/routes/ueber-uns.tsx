@@ -95,14 +95,30 @@ function UeberUns() {
               <div
                 className={`${imageFirst ? "order-1 flex justify-start" : "order-2 flex justify-end"}`}
               >
-                <img
-                  src={section.image}
-                  alt={section.alt}
-                  loading="lazy"
-                  width={900}
-                  height={900}
-                  className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
-                />
+                {section.video ? (
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster={section.image}
+                    aria-label={section.alt}
+                    width={900}
+                    height={900}
+                    className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
+                  >
+                    <source src={section.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    src={section.image}
+                    alt={section.alt}
+                    loading="lazy"
+                    width={900}
+                    height={900}
+                    className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
+                  />
+                )}
               </div>
             </section>
           );

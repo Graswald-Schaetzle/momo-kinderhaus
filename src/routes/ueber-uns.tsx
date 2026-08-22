@@ -92,9 +92,10 @@ function UeberUns() {
       <div className="mx-auto max-w-6xl px-6 pt-4 sm:px-10 md:px-14">
         {sections.map((section, i) => {
           const imageFirst = i % 2 === 1;
+          const blocks = section.blocks ?? [];
           return (
             <section
-              key={section.title}
+              key={i}
               className="grid grid-cols-2 items-stretch gap-4 py-8 sm:gap-10 sm:py-14"
             >
               <div
@@ -102,20 +103,24 @@ function UeberUns() {
                   imageFirst ? "order-2" : "order-1"
                 } ${imageFirst ? "pl-2 sm:pl-6" : "pr-2 sm:pr-6"} text-left`}
               >
-                <h2
-                  className={`font-display font-normal leading-tight tracking-[0.04em] hyphens-auto break-words ${
-                    section.title.length > 12
-                      ? "text-base sm:text-2xl md:text-3xl"
-                      : "text-xl sm:text-3xl md:text-4xl"
-                  }`}
-                  lang="de"
-                >
-                  {section.title}
-                </h2>
+                {blocks.map((block, bi) => (
+                  <div key={bi} className={bi > 0 ? "mt-6 sm:mt-10" : ""}>
+                    <h2
+                      className={`font-display font-normal leading-tight tracking-[0.04em] hyphens-auto break-words ${
+                        block.title.length > 12
+                          ? "text-base sm:text-2xl md:text-3xl"
+                          : "text-xl sm:text-3xl md:text-4xl"
+                      }`}
+                      lang="de"
+                    >
+                      {block.title}
+                    </h2>
 
-                <p className="mt-2 text-justify text-[11px] leading-snug sm:mt-4 sm:text-base sm:leading-relaxed md:text-lg">
-                  {section.text}
-                </p>
+                    <p className="mt-2 text-justify text-[11px] leading-snug sm:mt-4 sm:text-base sm:leading-relaxed md:text-lg">
+                      {block.text}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               <div
@@ -140,9 +145,9 @@ function UeberUns() {
                     src={section.image}
                     alt={section.alt}
                     loading="lazy"
-                    width={900}
-                    height={900}
-                    className="w-full max-w-[140px] object-contain mix-blend-multiply sm:max-w-[260px] md:max-w-sm"
+                    width={1536}
+                    height={1024}
+                    className="w-full max-w-[180px] object-contain mix-blend-multiply sm:max-w-[340px] md:max-w-md"
                   />
                 )}
               </div>

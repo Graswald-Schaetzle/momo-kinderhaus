@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
-import ruheVideo from "@/assets/film-ruhe-kerze-quer.mp4.asset.json";
+import ruheVideo from "@/assets/film-ruhe-kerze-quer-graded.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2.png";
-import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-gras-quer.mp4.asset.json";
+import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-gras-quer-graded.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit.png";
 
@@ -85,7 +85,7 @@ function UeberUns() {
           return (
             <section
               key={section.title}
-              className="grid grid-cols-2 items-center gap-4 py-8 sm:gap-10 sm:py-14"
+              className="grid grid-cols-2 items-stretch gap-4 py-8 sm:gap-10 sm:py-14"
             >
               <div
                 className={`${
@@ -101,7 +101,7 @@ function UeberUns() {
               </div>
 
               <div
-                className={`${imageFirst ? "order-1 flex justify-start" : "order-2 flex justify-end"}`}
+                className={`${imageFirst ? "order-1" : "order-2"} flex h-full items-center justify-center`}
               >
                 {section.video ? (
                   <video
@@ -112,7 +112,7 @@ function UeberUns() {
                     aria-label={section.alt}
                     width={1200}
                     height={675}
-                    className="aspect-video w-full max-w-[200px] rounded-none object-cover sm:max-w-[360px] md:max-w-lg"
+                    className="h-full w-full rounded-none object-cover"
                   >
                     <source src={section.video} type="video/mp4" />
                   </video>

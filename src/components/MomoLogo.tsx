@@ -100,10 +100,18 @@ export const MomoLogo = memo(function MomoLogo({
         -38 875 -64 1613 -95 2785 -45 1671 -72 2120 -132 2215 -24 37 -41 48 -112 70
         -81 26 -135 25 -188 -1z"/>
         </g>
-      </svg>
-      <span className="mt-[0.14em] block font-display font-normal leading-none tracking-[0.22em] text-[0.58em]">
+      <text
+        x="1720"
+        y="1130"
+        textAnchor="middle"
+        fontFamily="var(--font-display), Georgia, serif"
+        fontWeight="400"
+        letterSpacing="38"
+        fontSize="120"
+        fill="currentColor"
+      >
         KLEINKINDERGARTEN
-      </span>
-    </span>
+      </text>
+    </svg>
   );
 });

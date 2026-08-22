@@ -4,7 +4,7 @@ import naeheImg from "@/assets/ueberuns-naehe.png";
 import ruheImg from "@/assets/ueberuns-ruhe.png";
 import ruheVideo from "@/assets/film-ruhe-kerze-verspielt.mp4.asset.json";
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2.png";
-import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit-gras-licht.mp4.asset.json";
+import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur.png";
 import eigenstaendigkeitImg from "@/assets/ueberuns-eigenstaendigkeit.png";
 
@@ -57,7 +57,7 @@ const sections: Section[] = [
     title: "Ganzheitlichkeit",
     image: ganzheitlichkeitImg,
     video: ganzheitlichkeitVideo.url,
-    alt: "Filmaufnahme: barfüßige Kinderfüße laufen durch Gras im Garten",
+    alt: "Filmaufnahme: barfüßige Kinderfüße laufen über einen Holzboden",
     text: "Ein Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten.",
   },
   {

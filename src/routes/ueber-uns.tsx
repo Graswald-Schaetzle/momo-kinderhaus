@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
-import { PlayfulConnector } from "@/components/PlayfulConnector";
+
 import naeheImg from "@/assets/ueberuns-naehe-clean2.png";
 import ruheImg from "@/assets/ueberuns-ruhe-clean2.png";
-import ruheVideo from "@/assets/film-ruhe-kerze-verspielt.mp4.asset.json";
+
 import ganzheitlichkeitImg from "@/assets/ueberuns-ganzheitlichkeit-2-clean2.png";
 import ganzheitlichkeitVideo from "@/assets/film-ganzheitlichkeit.mp4.asset.json";
 import naturImg from "@/assets/ueberuns-natur-clean2.png";
@@ -51,8 +51,7 @@ const sections: Section[] = [
   {
     title: "Ruhe",
     image: ruheImg,
-    video: ruheVideo.url,
-    alt: "Filmaufnahme: eine Hand zündet eine Kerze an und pustet sie wieder aus",
+    alt: "Aquarell-Zeichnung: eine Hand zündet eine Kerze an und pustet sie wieder aus",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },
   {
@@ -87,7 +86,6 @@ function UeberUns() {
       </p>
 
       <div className="relative mx-auto max-w-6xl px-6 pt-4 sm:px-10 md:px-14">
-        <PlayfulConnector />
         {sections.map((section, i) => {
           const imageFirst = i % 2 === 1;
           return (

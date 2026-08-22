@@ -84,20 +84,11 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
             to="/"
             onClick={() => setOpen(false)}
             tabIndex={open ? 0 : -1}
-            className="no-underline flex flex-col items-center pt-10 sm:pt-12"
+            className={`no-underline flex flex-col items-center pt-10 text-menu-overlay-foreground transition-opacity duration-300 sm:pt-12 ${
+              open ? "opacity-100" : "opacity-0"
+            }`}
           >
-            <MomoLogo
-              className={`h-12 w-auto text-menu-overlay-foreground transition-opacity duration-300 sm:h-16 md:h-20 ${
-                open ? "opacity-100" : "opacity-0"
-              }`}
-            />
-            <span
-              className={`mt-1 font-display text-xs font-normal tracking-[0.06em] text-menu-overlay-foreground transition-opacity duration-300 sm:mt-2 sm:text-sm md:text-base ${
-                open ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              KLEINKINDERGARTEN
-            </span>
+            <MomoLogo className="h-16 text-menu-overlay-foreground sm:h-20 md:h-24" />
           </Link>
           <nav
             aria-label="Hauptnavigation"
@@ -156,13 +147,8 @@ export function SiteHeader({ showSlogan = false }: { showSlogan?: boolean }) {
       </div>
 
 
-      <Link to="/" className="no-underline flex flex-col items-center">
-        <MomoLogo
-          className="h-10 w-auto sm:h-24 md:h-28"
-        />
-        <span className="mt-1 font-display text-sm font-normal tracking-[0.06em] sm:mt-4 sm:text-xl md:text-2xl">
-          KLEINKINDERGARTEN
-        </span>
+      <Link to="/" className="no-underline flex flex-col items-center text-foreground">
+        <MomoLogo className="h-12 sm:h-24 md:h-28" />
       </Link>
 
       {showSlogan && (

@@ -18,38 +18,33 @@ type Chain = P[];
 
 // grows out of the crown of the bush in the "Natur" section
 const STEM_A: Chain = [
-  [21, 68],
-  [26, 64],
-  [33, 62],
-  [36, 58.5],
-  [40, 52],
-  [50.5, 46],
+  [24, 68],
+  [34, 64],
+  [46, 60],
+  [50, 54],
+  [50, 46],
   [50, 38],
-  [49.5, 30],
-  [48, 26],
-  [51.5, 23.5],
-  [56, 20.5],
-  [64, 17],
-  [70.5, 13.8],
+  [49, 30],
+  [49, 25],
+  [55, 20],
+  [63, 16.5],
+  [70, 13.8],
 ];
 
 const STEM_B: Chain = [
-  [19, 69],
-  [15, 66],
-  [9, 63.5],
-  [8.5, 59],
-  [8, 52],
-  [9.5, 44],
-  [8.5, 38],
-  [7.5, 31],
-  [8, 26],
-  [11, 23],
-  [17, 20],
+  [21, 69],
+  [12, 67],
+  [5, 63],
+  [4.5, 57],
+  [4, 48],
+  [5, 40],
+  [4.5, 32],
+  [4, 26],
+  [10, 21],
+  [22, 19.5],
   [40, 19],
-  [46, 18.6],
-  [56, 18],
-  [64, 16],
-  [70.5, 13.8],
+  [58, 17],
+  [70, 13.8],
 ];
 
 function bezier(p0: P, p1: P, p2: P, p3: P, t: number): P {
@@ -107,7 +102,7 @@ function Leaves({ chain, perSegment }: { chain: Chain; perSegment: number }) {
         // alternate sides and artwork so the foliage reads as dense as the bush
         const side = i % 2 === 0 ? 1 : -1;
         const src = i % 3 === 0 ? LEAF_B : LEAF_A;
-        const size = 7 + ((i * 7) % 5) * 0.9;
+        const size = 3.2 + ((i * 7) % 5) * 0.45;
         const jitterX = (((i * 13) % 7) - 3) * 0.25;
         const jitterY = (((i * 11) % 7) - 3) * 0.25;
         return (
@@ -150,8 +145,8 @@ export function PlayfulConnector() {
         </g>
       </svg>
 
-      <Leaves chain={STEM_A} perSegment={5} />
-      <Leaves chain={STEM_B} perSegment={5} />
+      <Leaves chain={STEM_A} perSegment={7} />
+      <Leaves chain={STEM_B} perSegment={7} />
     </div>
   );
 }

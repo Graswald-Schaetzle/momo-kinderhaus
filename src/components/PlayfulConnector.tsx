@@ -65,9 +65,13 @@ function bezier(p0: P, p1: P, p2: P, p3: P, t: number): P {
 }
 
 function toPathD(chain: Chain) {
-  let d = `M ${chain[0][0]} ${chain[0][1]}`;
+  const start = chain[0] as P;
+  let d = `M ${start[0]} ${start[1]}`;
   for (let i = 1; i < chain.length; i += 3) {
-    d += ` C ${chain[i][0]} ${chain[i][1]}, ${chain[i + 1][0]} ${chain[i + 1][1]}, ${chain[i + 2][0]} ${chain[i + 2][1]}`;
+    const c1 = chain[i] as P;
+    const c2 = chain[i + 1] as P;
+    const end = chain[i + 2] as P;
+    d += ` C ${c1[0]} ${c1[1]}, ${c2[0]} ${c2[1]}, ${end[0]} ${end[1]}`;
   }
   return d;
 }
@@ -76,10 +80,10 @@ function toPathD(chain: Chain) {
 function samples(chain: Chain, perSegment: number) {
   const out: { x: number; y: number; angle: number }[] = [];
   for (let i = 1; i < chain.length; i += 3) {
-    const p0 = chain[i - 1];
-    const p1 = chain[i];
-    const p2 = chain[i + 1];
-    const p3 = chain[i + 2];
+    const p0 = chain[i - 1] as P;
+    const p1 = chain[i] as P;
+    const p2 = chain[i + 1] as P;
+    const p3 = chain[i + 2] as P;
     for (let s = 0; s < perSegment; s++) {
       const t = s / perSegment;
       const pt = bezier(p0, p1, p2, p3, t);

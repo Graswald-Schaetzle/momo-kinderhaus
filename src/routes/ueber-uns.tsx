@@ -41,12 +41,14 @@ const sections = [
   {
     title: "Ruhe",
     image: ruheImg,
+    video: ruheVideo.url,
     alt: "Aquarell-Zeichnung: schlafendes Kind unter einem Mond",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
   },
   {
     title: "Ganzheitlichkeit",
     image: ganzheitlichkeitImg,
+    video: ganzheitlichkeitVideo.url,
     alt: "Aquarell-Zeichnung: barfüßiges, singendes Kind",
     text: "Ein Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten.",
   },

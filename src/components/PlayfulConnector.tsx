@@ -1,24 +1,96 @@
 /**
- * Hand-inked branch that grows out of the illustrations and winds around the
- * whole page — through the outer margins and the middle gutter, never across
- * the text columns, so everything stays perfectly readable.
- *
- * Coordinate space is roughly proportional to the container (≈ 383 × 1000),
- * so leaves and blossoms keep their shape.
+ * Hand-painted green branches in the style of the "Natur" illustration.
+ * They climb the outer margins and arch across the page only in the gaps
+ * between the sections — never across the texts or the films.
  */
 
-type LeafProps = { x: number; y: number; r: number; s?: number };
+const DARK = "#2E5228";
+const MID = "#4F7A38";
+const LIGHT = "#7BA055";
 
-function Leaf({ x, y, r, s = 1 }: LeafProps) {
+type SprigProps = {
+  x: number;
+  y: number;
+  rotate?: number;
+  scale?: number;
+  flip?: boolean;
+  color?: string;
+};
+
+/** One painted twig with pointed brush leaves. */
+function Sprig({ x, y, rotate = 0, scale = 1, flip = false, color = MID }: SprigProps) {
+  const leaves = [6, 15, 25, 34];
   return (
-    <path
-      transform={`translate(${x} ${y}) rotate(${r}) scale(${s})`}
-      d="M0 0 C 6 -7, 16 -8, 22 -2 C 16 5, 6 6, 0 0 Z"
-      fill="currentColor"
-      fillOpacity={0.18}
-      stroke="currentColor"
-      strokeWidth={1.1}
-    />
+    <g
+      transform={`translate(${x} ${y}) rotate(${rotate}) scale(${flip ? -scale : scale} ${scale})`}
+    >
+      <path
+        d="M0 0 C 3 -12, -2 -24, 1 -38"
+        fill="none"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+      />
+      {leaves.map((t, i) => (
+        <path
+          key={t}
+          transform={`translate(${i % 2 ? 1 : -0.5} ${-t}) rotate(${i % 2 ? 44 : -40})`}
+          d="M0 0 C 4 -2.4, 9.5 -2.4, 13 0 C 9.5 2.8, 4 2.8, 0 0 Z"
+          fill={i % 2 ? color : DARK}
+          stroke={DARK}
+          strokeWidth={0.6}
+          strokeLinejoin="round"
+        />
+      ))}
+      <path
+        transform="translate(1 -38) rotate(-90)"
+        d="M0 0 C 3 -2, 8 -2, 11 0 C 8 2.4, 3 2.4, 0 0 Z"
+        fill={LIGHT}
+        stroke={DARK}
+        strokeWidth={0.6}
+      />
+    </g>
+  );
+}
+
+/** Pale-yellow blossom with the dark brush outline of the artwork. */
+function Blossom({
+  x,
+  y,
+  scale = 1,
+  rotate = 0,
+}: {
+  x: number;
+  y: number;
+  scale?: number;
+  rotate?: number;
+}) {
+  return (
+    <g transform={`translate(${x} ${y}) rotate(${rotate}) scale(${scale})`}>
+      {[0, 60, 120, 180, 240, 300].map((a) => (
+        <path
+          key={a}
+          transform={`rotate(${a})`}
+          d="M0 0 C -4 -7, -3.5 -15, 0 -19 C 3.5 -15, 4 -7, 0 0 Z"
+          fill="#E8E3A8"
+          stroke="#1F1B16"
+          strokeWidth={1.3}
+          strokeLinejoin="round"
+        />
+      ))}
+      <circle r={3.2} fill="#E8E3A8" stroke="#1F1B16" strokeWidth={1.2} />
+    </g>
+  );
+}
+
+/** Arch that crosses the page inside the gap between two sections. */
+function Arch({ y, dir = 1 }: { y: number; dir?: 1 | -1 }) {
+  const d =
+    dir === 1
+      ? `M6 ${y - 14} C 70 ${y + 10}, 150 ${y - 12}, 200 ${y + 8} C 260 ${y + 26}, 330 ${y - 6}, 377 ${y + 12}`
+      : `M377 ${y - 14} C 320 ${y + 10}, 240 ${y - 12}, 190 ${y + 8} C 130 ${y + 26}, 60 ${y - 6}, 6 ${y + 12}`;
+  return (
+    <path d={d} fill="none" stroke={MID} strokeWidth={1.9} strokeLinecap="round" />
   );
 }
 
@@ -28,102 +100,58 @@ export function PlayfulConnector() {
       aria-hidden="true"
       viewBox="0 0 383 1000"
       preserveAspectRatio="none"
-      className="pointer-events-none absolute -inset-x-6 inset-y-0 h-full w-[calc(100%+3rem)] text-foreground/45 mix-blend-multiply"
+      className="pointer-events-none absolute -inset-x-10 inset-y-0 h-full w-[calc(100%+5rem)] opacity-90"
     >
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        {/* main branch: grows from the head of the figure (top right),
-            down through the gutter, along the left margin and back */}
+      <g fill="none" strokeLinecap="round">
+        {/* left margin vine */}
         <path
-          strokeWidth={2.1}
-          d="M300 40
-             C 292 78, 250 92, 216 110
-             C 190 124, 182 152, 191 184
-             C 200 216, 186 236, 150 248
-             C 96 266, 40 262, 22 298
-             C 6 330, 14 366, 24 402
-             C 34 440, 20 470, 16 508
-             C 12 548, 34 570, 74 578
-             C 130 588, 172 596, 189 622
-             C 204 646, 198 672, 180 692
-             C 150 726, 96 720, 60 742
-             C 30 760, 20 796, 30 830"
-        />
-        {/* side twig reaching towards the arm that holds the child */}
-        <path
-          strokeWidth={1.5}
-          d="M216 110 C 240 118, 258 134, 262 158"
-          opacity={0.8}
+          d="M8 40 C 2 130, 12 200, 6 292 C 1 384, 12 450, 7 545 C 3 640, 13 710, 8 800 C 4 880, 11 930, 7 990"
+          stroke={MID}
+          strokeWidth={2.2}
         />
         <path
-          strokeWidth={1.3}
-          d="M191 184 C 168 190, 152 204, 148 224"
-          opacity={0.75}
+          d="M8 40 C 14 130, 4 200, 10 292"
+          stroke={DARK}
+          strokeWidth={0.9}
+          opacity={0.5}
         />
+        {/* right margin vine */}
         <path
-          strokeWidth={1.3}
-          d="M22 298 C 6 314, 4 336, 12 356"
-          opacity={0.7}
-        />
-        <path
-          strokeWidth={1.3}
-          d="M74 578 C 62 598, 64 618, 78 634"
-          opacity={0.7}
-        />
-        <path
-          strokeWidth={1.4}
-          d="M180 692 C 200 706, 214 726, 214 748"
-          opacity={0.75}
+          d="M375 90 C 381 180, 371 250, 377 342 C 382 434, 371 500, 376 595 C 380 690, 370 760, 375 850 C 379 920, 372 960, 376 998"
+          stroke={MID}
+          strokeWidth={2.2}
         />
 
-        {/* playful curl that ends at the hand with the yellow flower */}
-        <path
-          strokeWidth={1.9}
-          d="M30 830
-             C 40 866, 84 872, 106 892
-             C 126 910, 118 940, 92 944
-             C 70 948, 62 924, 82 914
-             C 104 903, 132 924, 138 950"
-        />
+        {/* arches through the gaps between the sections */}
+        <Arch y={200} dir={1} />
+        <Arch y={400} dir={-1} />
+        <Arch y={600} dir={1} />
+        <Arch y={800} dir={-1} />
       </g>
 
-      {/* leaves along the branch */}
-      <g>
-        <Leaf x={258} y={82} r={-30} s={1.1} />
-        <Leaf x={200} y={140} r={40} />
-        <Leaf x={262} y={158} r={10} s={0.9} />
-        <Leaf x={148} y={224} r={155} s={1.05} />
-        <Leaf x={92} y={266} r={200} />
-        <Leaf x={22} y={330} r={95} s={0.95} />
-        <Leaf x={20} y={430} r={65} s={1.1} />
-        <Leaf x={16} y={520} r={110} s={0.9} />
-        <Leaf x={78} y={634} r={35} />
-        <Leaf x={189} y={622} r={-20} s={1.05} />
-        <Leaf x={214} y={748} r={25} s={0.95} />
-        <Leaf x={60} y={742} r={175} s={1.1} />
-        <Leaf x={106} y={892} r={-15} s={0.9} />
-      </g>
+      {/* sprigs on the margins */}
+      <Sprig x={7} y={180} rotate={12} scale={0.75} color={LIGHT} />
+      <Sprig x={7} y={330} rotate={-8} scale={0.8} flip />
+      <Sprig x={8} y={500} rotate={10} scale={0.75} />
+      <Sprig x={8} y={700} rotate={-6} scale={0.8} flip color={LIGHT} />
+      <Sprig x={7} y={900} rotate={8} scale={0.7} />
 
-      {/* the yellow blossom the hand is holding */}
-      <g transform="translate(138 950)">
-        {[0, 72, 144, 216, 288].map((a) => (
-          <ellipse
-            key={a}
-            transform={`rotate(${a}) translate(0 -11)`}
-            rx={6.5}
-            ry={10}
-            fill="#D9A93B"
-            fillOpacity={0.55}
-            stroke="currentColor"
-            strokeWidth={1}
-          />
-        ))}
-        <circle r={4.5} fill="#C98A2A" fillOpacity={0.75} stroke="currentColor" strokeWidth={1} />
-      </g>
+      <Sprig x={376} y={240} rotate={-12} scale={0.75} flip />
+      <Sprig x={375} y={430} rotate={8} scale={0.8} color={LIGHT} />
+      <Sprig x={375} y={640} rotate={-10} scale={0.75} flip />
+      <Sprig x={376} y={880} rotate={6} scale={0.7} />
+
+      {/* sprigs riding on the arches */}
+      <Sprig x={150} y={196} rotate={-14} scale={0.6} />
+      <Sprig x={240} y={418} rotate={12} scale={0.6} flip color={LIGHT} />
+      <Sprig x={140} y={600} rotate={-10} scale={0.6} />
+      <Sprig x={250} y={818} rotate={14} scale={0.6} flip />
+
+      {/* blossoms, echoing the yellow flower in the hand */}
+      <Blossom x={200} y={208} scale={0.7} rotate={12} />
+      <Blossom x={7} y={620} scale={0.6} rotate={-18} />
+      <Blossom x={376} y={545} scale={0.65} rotate={24} />
+      <Blossom x={190} y={808} scale={0.7} rotate={-10} />
     </svg>
   );
 }

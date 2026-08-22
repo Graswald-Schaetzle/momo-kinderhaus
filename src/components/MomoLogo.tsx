@@ -14,7 +14,7 @@ export const MomoLogo = memo(function MomoLogo({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 3440 1180"
+      viewBox="0 0 3440 1320"
       preserveAspectRatio="xMidYMid meet"
       className={className}
       fill="currentColor"

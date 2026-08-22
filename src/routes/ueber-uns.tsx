@@ -54,6 +54,7 @@ const sections: Section[] = [
     image: ruheImg,
     alt: "Tuschezeichnung: ein ruhendes Kind mit geschlossenen Augen",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
+    imgMax: "max-w-[220px] sm:max-w-sm md:max-w-md",
   },
   {
     title: "Ganzheitlickeit",

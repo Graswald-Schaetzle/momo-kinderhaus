@@ -85,9 +85,9 @@ export function PlayfulConnector() {
       </svg>
 
       {/* centre gutter */}
-      <Sprig left={50} top={59.5} width={6.5} rotate={8} />
-      <Sprig left={50} top={43.5} width={6} rotate={186} src={sprigB.url} />
-      <Sprig left={50.5} top={23} width={6.5} rotate={-14} flip />
+      <Sprig left={50} top={59.5} width={5.5} rotate={8} />
+      <Sprig left={50} top={43.5} width={5.5} rotate={186} src={sprigB.url} />
+      <Sprig left={50.5} top={23} width={5.5} rotate={-14} flip />
 
       {/* left margin */}
       <Sprig left={8.6} top={60} width={6.5} rotate={-24} flip src={sprigB.url} />

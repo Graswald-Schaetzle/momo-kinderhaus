@@ -92,9 +92,17 @@ function UeberUns() {
                   imageFirst ? "order-2" : "order-1"
                 } ${imageFirst ? "pl-2 sm:pl-6" : "pr-2 sm:pr-6"} text-left`}
               >
-                <h2 className="font-display text-xl font-normal leading-tight tracking-[0.04em] sm:text-3xl md:text-4xl">
+                <h2
+                  className={`font-display font-normal leading-tight tracking-[0.04em] hyphens-auto break-words ${
+                    section.title.length > 12
+                      ? "text-base sm:text-2xl md:text-3xl"
+                      : "text-xl sm:text-3xl md:text-4xl"
+                  }`}
+                  lang="de"
+                >
                   {section.title}
                 </h2>
+
                 <p className="mt-2 text-justify text-[11px] leading-snug sm:mt-4 sm:text-base sm:leading-relaxed md:text-lg">
                   {section.text}
                 </p>
@@ -112,10 +120,11 @@ function UeberUns() {
                     aria-label={section.alt}
                     width={1200}
                     height={675}
-                    className="h-full w-full rounded-none object-cover"
+                    className="max-h-full w-full rounded-none object-cover"
                   >
                     <source src={section.video} type="video/mp4" />
                   </video>
+
                 ) : (
                   <img
                     src={section.image}

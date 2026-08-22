@@ -31,47 +31,52 @@ export const Route = createFileRoute("/ueber-uns")({
   component: UeberUns,
 });
 
+type TextBlock = { title: string; text: string };
+
 type Section = {
-  title: string;
   image: string;
-  video?: string;
   alt: string;
+  video?: string;
   text: string;
+  blocks?: TextBlock[];
 };
 
 const sections: Section[] = [
   {
-    title: "Nähe",
-    image: naeheImg,
-    alt: "Aquarell-Zeichnung: Pädagogin hält ein Kind im Arm",
-    text: "9 Kinder, betreut von 3 festen Pädagoginnen: Das ermöglicht echte Aufmerksamkeit von Bezugspersonen, die euer Kind wirklich kennen. Genau das schenkt eurem Kind die Zuneigung, die es in den ersten Jahren am meisten braucht.",
+    image: naeheNaturImg,
+    alt: "Aquarell-Zeichnung: Eine Bezugsperson umarmt ein Kind und geht in eine Natur-Figur mit Blätterkrone über, verbunden durch einen zentralen Baumstamm",
+    text: "",
+    blocks: [
+      {
+        title: "Nähe",
+        text: "9 Kinder, betreut von 3 festen Pädagoginnen: Das ermöglicht echte Aufmerksamkeit von Bezugspersonen, die euer Kind wirklich kennen. Genau das schenkt eurem Kind die Zuneigung, die es in den ersten Jahren am meisten braucht.",
+      },
+      {
+        title: "Natur",
+        text: "Unser Garten ist ein echter kleiner Naturraum: klettern auf Baumstämmen, matschen mit Wasser und Erde, Vögel beobachten. Kinder lernen hier mit allen Sinnen und in ihrem eigenen Tempo draußen, wo Entdecken noch echt ist.",
+      },
+    ],
   },
   {
-    title: "Ruhe",
     image: ruheImg,
     video: ruheVideo.url,
     alt: "Filmaufnahme: eine Hand zündet eine Kerze an und pustet sie wieder aus",
     text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden.",
+    blocks: [{ title: "Ruhe", text: "Bei uns hat der Tag einen ruhigen Klang. Verlässliche Rituale und feste Bezugspersonen geben Halt statt Hektik und schenken eurem Kind: innere Ruhe statt Reizüberflutung. Und natürlich darf dabei gelacht, getobt und laut gespielt werden." }],
   },
   {
-    title: "Ganzheitlickeit",
     image: ganzheitlichkeitImg,
     video: ganzheitlichkeitVideo.url,
     alt: "Filmaufnahme: barfüßige Kinderfüße laufen über einen Holzboden",
     text: "\nEin Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten.",
+    blocks: [{ title: "Ganzheitlickeit", text: "\nEin Kind ist mehr als sein Verhalten, es ist Körper, Gefühl und Geist zugleich. Deshalb gehört bei uns Barfußlaufen genauso zum Alltag wie gemeinsames Singen. Alle Gefühle bekommen Raum und werden sorgsam begleitet. So darf sich euer Kind mit all seinen Facetten entfalten." }],
   },
   {
-    title: "Natur",
-    image: naturImg,
-    alt: "Aquarell-Zeichnung: Baum mit Vogel und Kind auf einem Baumstamm",
-    text: "Unser Garten ist ein echter kleiner Naturraum: klettern auf Baumstämmen, matschen mit Wasser und Erde, Vögel beobachten. Kinder lernen hier mit allen Sinnen und in ihrem eigenen Tempo draußen, wo Entdecken noch echt ist.",
-  },
-  {
-    title: "Eigenständikeit",
     image: eigenstaendigkeitImg,
     video: eigenstaendigkeitVideo.url,
     alt: "Filmaufnahme: Kinderhände stapeln Bauklötze, der Turm fällt um",
     text: "Bei uns gibt es feste Rituale und klare Regeln, die dem Alltag Halt geben. Innerhalb dieses verlässlichen Rahmens soll euer Kind aber mitbestimmen, zum Beispiel welches Lied im Morgenkreis gesungen wird oder womit im Freispiel gebaut und gestaltet wird. So erlebt es von Anfang an: Meine Meinung zählt, in einem Rahmen der mich sicher fühlen lässt.",
+    blocks: [{ title: "Eigenständikeit", text: "Bei uns gibt es feste Rituale und klare Regeln, die dem Alltag Halt geben. Innerhalb dieses verlässlichen Rahmens soll euer Kind aber mitbestimmen, zum Beispiel welches Lied im Morgenkreis gesungen wird oder womit im Freispiel gebaut und gestaltet wird. So erlebt es von Anfang an: Meine Meinung zählt, in einem Rahmen der mich sicher fühlen lässt." }],
   },
 ];
 
